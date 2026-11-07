@@ -1,0 +1,11 @@
+{
+    "title": "Polvito's British Army | Account Verification",
+    "description": "Link your Roblox account to verify your identity and receive the appropriate British Army Discord rank.",
+    "instructions": [
+        "Select **Verify Account** and enter your exact Roblox username.",
+        "The bot will provide a unique verification code privately.",
+        "Add that code to your public Roblox profile description and save the change.",
+        "Return to Discord and select **Confirm Verification**."
+    ],
+    "privacy_notice": "Your Roblox user ID and username are stored to maintain your account link. Your verification code expires and is not stored in plain text."
+}
