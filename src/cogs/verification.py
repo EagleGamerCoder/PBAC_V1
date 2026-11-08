@@ -56,13 +56,31 @@ class StartVerificationView(discord.ui.View):
         super().__init__(timeout=None)
         self.cog = cog
 
-    @discord.ui.button(
-        label="Verify Account",
-        style=discord.ButtonStyle.primary,
-        custom_id="pbac:verification:start",
-    )
-    async def start(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:
+    @discord.ui.button(label="Verify Account", style=discord.ButtonStyle.primary, custom_id="pbac:verification:start", row=0)
+    async def start(self,interaction: discord.Interaction, button: discord.ui.Button) -> None:
         await interaction.response.send_modal(RobloxUsernameModal(self.cog))
+
+    @discord.ui.button(label="Update Account", style=discord.ButtonStyle.success, emoji="🔄", custom_id="pbac:verification:update", row=0)
+    async def update(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:
+        if not isinstance(interaction.user, discord.Member):
+            await interaction.response.send_message("This action must be completed inside the British Army Discord server.", ephemeral=True)
+            return
+
+        await interaction.response.defer(ephemeral=True, thinking=True)
+        try:
+            success, message = await self.cog.rank_sync.sync_member(interaction.user)
+            await interaction.followup.send(message, ephemeral=True,)
+
+            if success:
+                logger.info("Manual account update completed for Discord user_id=%s", interaction.user.id,)
+        except RobloxAPIError:
+            logger.exception("Roblox API error during manual sync for member_id=%s", interaction.user.id,)
+            await interaction.followup.send("Roblox could not be reached. Please try again later.", ephemeral=True)
+        except discord.Forbidden:
+            await interaction.followup.send("I do not have permission to update your roles or nickname.\nPlease contact <@1434931977571668113>.", ephemeral=True)
+        except Exception:
+            logger.exception("Unexpected account update error for member_id=%s", interaction.user.id)
+            await interaction.followup.send("An unexpected error occurred while updating your account.\nPlease contact <@1434931977571668113>.", ephemeral=True)
 
 
 class ConfirmVerificationView(discord.ui.View):

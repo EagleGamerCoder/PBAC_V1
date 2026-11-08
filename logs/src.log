@@ -2981,3 +2981,18 @@ NameError: name 'desired_id' is not defined. Did you mean: 'desired_ids'?
 2026-11-08 15:00:55 | INFO     | src.services.rank_sync | General mapping exists: True
 2026-11-08 15:00:55 | INFO     | src.services.rank_sync | Loaded rank IDs: ['916406041', '916000057', '916426060', '916682067', '915840034', '916406042', '916044050', '915914064', '915972099', '916066052', '916608028', '916414053', '916038042', '916234048', '916662052', '915946063', '916044053', '916316034', '917540026', '912434144', '915818053', '915914070', '916414056', '915906040', '916376041', '916044055', '915346032']
 2026-11-08 15:00:58 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=915346032
+2026-11-08 15:07:06 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 15:07:06 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/419381845 "HTTP/1.1 200 OK"
+2026-11-08 15:07:32 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/419381845 "HTTP/1.1 200 OK"
+2026-11-08 15:07:32 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/419381845/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 15:07:33 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/419381845 "HTTP/1.1 200 OK"
+2026-11-08 15:07:33 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/419381845/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 15:07:33 | INFO     | src.services.rank_sync | Rank mapping file: C:\Users\nated\PBAC_V1\data\verification\rank_mapping.json
+2026-11-08 15:07:33 | INFO     | src.services.rank_sync | General mapping exists: True
+2026-11-08 15:07:33 | INFO     | src.services.rank_sync | Loaded rank IDs: ['916406041', '916000057', '916426060', '916682067', '915840034', '916406042', '916044050', '915914064', '915972099', '916066052', '916608028', '916414053', '916038042', '916234048', '916662052', '915946063', '916044053', '916316034', '917540026', '912434144', '915818053', '915914070', '916414056', '915906040', '916376041', '916044055', '915346032']
+2026-11-08 15:07:35 | INFO     | src.cogs.verification | Verified Discord user_id=375738836451459083 Roblox user_id=419381845 rank_id=916376041
+2026-11-08 15:09:54 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 15:09:54 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/4385597733 "HTTP/1.1 200 OK"
+2026-11-08 15:14:45 | INFO     | src.core.bot | Shutting down PBA Command bot.
+2026-11-08 15:14:45 | INFO     | src.database.connection | Database connection pool disposed.
+2026-11-08 15:14:45 | INFO     | __main__ | Shutdown requested from the terminal.

@@ -243,27 +243,6 @@ class Utilities(commands.Cog):
             embed.set_thumbnail(url=guild.icon.url)
         await interaction.response.send_message(embed=embed, files=files, ephemeral=(not show_globally))
 
-    @app_commands.command(name="msg", description="Type a msg with the bot.")
-    @app_commands.describe(message="The message to send.", title="Optional title for the message.")
-    @app_commands.guild_only()
-    async def msg(self, interaction: discord.Interaction, message: str, title: str | None) -> None:
-        await interaction.response.defer(ephemeral=True)
-
-        channel = interaction.channel
-        if not isinstance(channel, discord.abc.Messageable):
-            await interaction.followup.send("This channel does not support sending messages.", ephemeral=True)
-            return
-        
-        user_id = interaction.user.id
-        if user_id != self.bot.settings.bot_developer_discord_id:
-            embed, files = create_pbac_embed(title="Nice Try", description=f"Yeah you're not eagle buddy, you could never outmatch his aura {interaction.user.mention}.")
-            await channel.send(embed=embed, files=files)
-            return
-        
-        embed, files = create_pbac_embed(title=title or "", description=message)
-        await channel.send(embed=embed, files=files)
-        await interaction.followup.send("Sent.", ephemeral=True)
-
 async def setup(bot: commands.Bot) -> None:
     """Load this cog as a discord.py extension."""
     await bot.add_cog(Utilities(bot))
