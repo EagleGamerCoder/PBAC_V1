@@ -12,7 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 BRANDING_DIR = PROJECT_ROOT / "assets" / "branding"
 BADGE_PATH = BRANDING_DIR / "badge.png" 
-BANNER_PATH = BRANDING_DIR / "temp_banner.png" # TEMP
+BANNER_PATH = BRANDING_DIR / "anner.png"
 
 
 def create_pbac_embed(*, title: str, description: str | None = None, colour: discord.Colour | None = None) -> tuple[discord.Embed, list[discord.File]]:
@@ -27,22 +27,22 @@ def create_pbac_embed(*, title: str, description: str | None = None, colour: dis
     embed = discord.Embed(
         title=title,
         description=description,
-        colour=colour or discord.Colour(PBAC_GREY),
-        timestamp=datetime.now(timezone.utc),
+        colour=colour or discord.Colour(PBAC_GREY)
     )
-
+    
+    # <<<< Removal to see UI Changes in 0.1.5
     # Department identity in the author area.
-    embed.set_author(
-        name="POLVITO'S BRITISH ARMY COMMAND",
-        icon_url="attachment://badge.png",
-    )
+    #embed.set_author(
+    #    name="POLVITO'S BRITISH ARMY COMMAND",
+    #)
+    
     # Wide image displayed beneath the embed's main content.
     embed.set_image(
         url="attachment://banner.png"
     )
     # A consistent footer on all SFD embeds.
     embed.set_footer(
-        text=f"PBA Command • v{__version__}"
+        text=f"PBA Command • v{__version__} • {datetime.now(timezone.utc)}"
     )
 
     files = [
