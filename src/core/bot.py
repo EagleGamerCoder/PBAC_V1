@@ -19,6 +19,7 @@ from src.database.models import verification_model as _verification_model  # Reg
 from src.services.roblox import RobloxService
 from src.services.verification import VerificationService
 from src.services.rank_sync import RankSyncService
+from src.services.setup_service import SetupService
 
 # Add new  cogs here as they are tested and implimented.
 INITIAL_EXTENSIONS: tuple[str, ...] = (
@@ -26,6 +27,7 @@ INITIAL_EXTENSIONS: tuple[str, ...] = (
     "src.cogs.verification",
     "src.cogs.message",
     "src.cogs.ticket",
+    "src.cogs.server_setup",
 )
 
 """MAIN BOT CLASS"""
@@ -62,6 +64,9 @@ class DiscordBot(commands.Bot):
             nickname_format=settings.nickname_format,
             bod_field_marshal_user_id=settings.bod_field_marshal_user_id,
             bod_second_in_command_user_id=settings.bod_second_in_command_user_id,
+        )
+        self.setup_service = SetupService(
+            self.database
         )
         self._logged_first_ready = False
         self.tree.on_error = handle_app_command_error
