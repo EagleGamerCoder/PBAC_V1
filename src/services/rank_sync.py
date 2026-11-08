@@ -59,103 +59,149 @@ class RankSyncService:
             raise ValueError(f"Configured Discord role(s) not found: {", ".join(map(str, sorted(missing)))}")
 
         current_ids = {role.id for role in member.roles}
-        remove = [role for role in member.roles if role.id in managed_ids and role.id not in desired_id]
+        remove = [role for role in member.roles if role.id in managed_ids and role.id not in desired_ids]
         add = [roles_by_id[role_id] for role_id in desired_ids if role_id not in current_ids]
         if remove:
             await member.remove_roles(*remove, reason="PBAC British Army verification/rank synchronisation")
         if add:
             await member.add_roles(*add, reason="PBAC British Army verification/rank synchronisation")
 
-    async def sync_member(self, member: discord.Member, *, update_record: bool = True) -> tuple[bool, str]:
+    async def sync_member(
+        self, member: discord.Member, *, update_record: bool = True
+    ) -> tuple[bool, str]:
         async with self.database.session() as session:
             repo = VerificationRepository(session)
             account = await repo.get_by_discord_id(member.id)
+
             if account is None:
                 return False, "This Discord member does not have a linked Roblox account."
 
             profile = await self.roblox.get_user(account.roblox_user_id)
             current_username = str(profile.get("name") or account.roblox_username)
-            role_id, rank_name, rank_number = await self.roblox.get_group_role(account.roblox_user_id)
+
+            # Keep Roblox identifiers separate from Discord role identifiers.
+            roblox_role_id, rank_name, rank_number = await self.roblox.get_group_role(
+                account.roblox_user_id
+            )
 
             config = self.load_config()
             if not config:
-                return False, "The rank mapping could not be loaded. No Discord roles or nickname were changed."
+                return False, "The rank mapping could not be loaded. No roles or nickname were changed."
+
             global_roles = config.get("roles", {})
             rank_mapping = config.get("ranks", {})
 
-            # Validate required base roles before attempting any Discord changes.
+            # Always assign Verified and all four banner roles.
             desired_ids: set[int] = set()
+
             for key in ALWAYS_ASSIGN_KEYS:
-                role_id = self._role_id(global_roles.get(key))
-                if role_id is None:
-                    return False, (f"Required role key '{key}' is missing or invalid in\ndata/verification/rank_mapping.json. No roles or nickname were changed.")
-                desired_ids.add(role_id)
+                discord_role_id = self._role_id(global_roles.get(key))
 
-            """Only this explicit allowlist is managed. Roles below Leadership in
-            the JSON file are neither read for assignment nor touched for removal."""
-            managed_ids = {role_id for key in MANAGED_ROLE_KEYS if (role_id := self._role_id(global_roles.get(key))) is not None}
+                if discord_role_id is None:
+                    return False, (
+                        f"Required Discord role '{key}' is missing or invalid. "
+                        "No roles or nickname were changed."
+                    )
 
-            entry = rank_mapping.get(str(role_id)) if role_id != 0 else None
-            known_rank = role_id == 0 or isinstance(entry, dict)
+                desired_ids.add(discord_role_id)
 
+            # Only manage the explicitly permitted roles.
+            managed_ids = {
+                discord_role_id
+                for key in MANAGED_ROLE_KEYS
+                if (
+                    discord_role_id := self._role_id(global_roles.get(key))
+                ) is not None
+            }
+
+            # Look up the Roblox role ID, NOT a Discord role ID.
+            entry = (
+                rank_mapping.get(str(roblox_role_id))
+                if roblox_role_id != 0
+                else None
+            )
+
+            known_rank = roblox_role_id == 0 or isinstance(entry, dict)
+
+            # Unknown ranks still receive verification and banner roles.
+            # Existing rank roles and nickname remain untouched.
             if not known_rank:
-                """Still grant the base verification/banner roles, but do not guess
-                a category, strip any existing category role, or change nickname.
-                On an unmapped rank, manage only the base verification/banner
-                roles. Existing rank/category roles are left untouched as well."""
-
                 base_managed_ids = {self._role_id(global_roles.get(key)) for key in ALWAYS_ASSIGN_KEYS if self._role_id(global_roles.get(key)) is not None}
+
                 await self._apply_roles(member, desired_ids, base_managed_ids)
-                return True, (
-                    f"Your account is verified and the four banner roles plus Verified role "
-                    f"have been assigned. Your Roblox rank **{rank_name}** (`{role_id}`) "
-                    "is not yet mapped, so existing rank roles and nickname were left unchanged. "
-                    "Please contact an administrator."
+
+                return True, (f"Your account is verified and the four banner roles plus the\nVerified role have been assigned. \nYour Roblox rank **{rank_name}**\n(role ID `{roblox_role_id}`, rank `{rank_number}`)\nis not yet mapped, so existing rank roles and nickname\nwere left unchanged. Please contact an administrator."
                 )
 
-            if role_id == 0:
-                civilian_id = self._role_id(global_roles.get("civilian"))
-                if civilian_id is None:
-                    return False, "The civilian role ID is missing or invalid. No rank roles or nickname were changed."
-                desired_ids.add(civilian_id)
+            if roblox_role_id == 0:
+                discord_role_id = self._role_id(global_roles.get("civilian"))
+
+                if discord_role_id is None:
+                    return False, "The Civilian Discord role ID is missing or invalid."
+
+                desired_ids.add(discord_role_id)
+
                 abbreviation = "CIV"
                 display_rank = "Civilian"
-                result_text = "Not in the British Army group; assigned Verified, banner and Civilian roles."
+
+                result_text = ("Not in the British Army group; assigned Verified, \nbanner and Civilian roles.")
+
             else:
                 role_keys = entry.get("role_keys", [])
+
                 if not isinstance(role_keys, list):
-                    return False, f"Invalid role_keys for Roblox rank `{role_id}`. No rank roles or nickname were changed."
+                    return False, (f"Invalid role_keys for Roblox role `{roblox_role_id}`.")
 
                 unknown_keys = [key for key in role_keys if key not in MANAGED_RANK_KEYS]
                 if unknown_keys:
-                    return False, (
-                        f"Rank mapping for **{rank_name}** contains unsupported role key(s): "
-                        f"{', '.join(map(str, unknown_keys))}. No rank roles or nickname were changed."
-                    )
+                    return False, (f"Rank mapping for **{rank_name}** contains unsupported\nrole keys: {', '.join(map(str, unknown_keys))}.")
 
                 for role_key in role_keys:
-                    role_id = self._role_id(global_roles.get(role_key))
-                    if role_id is None:
-                        return False, (
-                            f"Role ID for '{role_key}' is missing or invalid. "
-                            "No rank roles or nickname were changed."
-                        )
-                    desired_ids.add(role_id)
+                    discord_role_id = self._role_id(global_roles.get(role_key))
 
-                abbreviation = str(entry.get("abbreviation") or rank_name)
-                is_bod = (str(entry.get("abbreviation", "")).upper() == "BOD")
+                    if discord_role_id is None:
+                        return False, (
+                            f"Discord role ID for '{role_key}' is missing or invalid."
+                        )
+
+                    desired_ids.add(discord_role_id)
+
+                abbreviation = str(
+                    entry.get("abbreviation") or rank_name
+                )
+
+                # BOD nickname overrides use Roblox user IDs.
+                is_bod = abbreviation.upper() == "BOD"
+
                 if is_bod:
-                    if (account.roblox_user_id == self.bod_field_marshal_user_id and self.bod_field_marshal_user_id):
-                        abbreviation = "1IC"
-                    elif (account.roblox_user_id == self.bod_second_in_command_user_id and self.bod_second_in_command_user_id):
+                    if (
+                        account.roblox_user_id == self.bod_field_marshal_user_id
+                        and self.bod_field_marshal_user_id
+                    ):
+                        abbreviation = "FM"
+
+                    elif (
+                        account.roblox_user_id == self.bod_second_in_command_user_id
+                        and self.bod_second_in_command_user_id
+                    ):
                         abbreviation = "2IC"
 
                 display_rank = str(entry.get("name") or rank_name)
-                result_text = f"Synchronised **{rank_name}** (Roblox rank `{role_id}`); banner and Verified roles are present."
 
-            # Resolve and validate every desired role before making any changes.
-            roles_by_id = {role.id for role in member.guild.roles}
-            missing_desired = desired_ids - roles_by_id
+                result_text = (
+                    f"Successfully synchronised **{rank_name}** "
+                    f"(Roblox role ID `{roblox_role_id}`, "
+                    f"rank `{rank_number}`). "
+                    "Your banner, Verified and rank roles are assigned."
+                )
+
+            # Validate every Discord role before making changes.
+            guild_role_ids = {
+                role.id for role in member.guild.roles
+            }
+
+            missing_desired = desired_ids - guild_role_ids
+
             if missing_desired:
                 return False, (
                     "Configured Discord role(s) not found: "
@@ -164,17 +210,34 @@ class RankSyncService:
                 )
 
             try:
-                await self._apply_roles(member, desired_ids, managed_ids)
+                await self._apply_roles(
+                    member,
+                    desired_ids,
+                    managed_ids,
+                )
+
                 nickname = self.nickname_format.format(
                     rank=display_rank,
                     rank_abbr=abbreviation,
                     username=current_username,
                 )
-                await member.edit(nick=nickname[:32], reason="PBAC British Army rank synchronisation")
+
+                await member.edit(
+                    nick=nickname[:32],
+                    reason="PBAC British Army rank synchronisation",
+                )
+
             except discord.Forbidden:
-                return False, ("I lack permission to update this member's roles or nickname. \nCheck my Manage Roles permission and role hierarchy.")
+                return False, (
+                    "I lack permission to update this member's roles or nickname. "
+                    "Check my Manage Roles permission and role hierarchy."
+                )
+
             except (discord.HTTPException, ValueError, KeyError) as exc:
-                logger.exception("Discord rank sync failed for member_id=%s", member.id)
+                logger.exception(
+                    "Discord rank sync failed for member_id=%s",
+                    member.id,
+                )
                 return False, f"Could not complete Discord synchronisation: {exc}"
 
             if update_record:
@@ -183,4 +246,5 @@ class RankSyncService:
                 account.roblox_rank_name = rank_name
                 account.last_synced_at = datetime.utcnow()
                 await session.commit()
+
             return True, result_text

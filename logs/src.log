@@ -2827,3 +2827,136 @@ Traceback (most recent call last):
     rank_id, rank_name = await self.roblox.get_group_rank(challenge.roblox_user_id)
                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'RobloxService' object has no attribute 'get_group_rank'. Did you mean: 'get_group_role'?
+2026-11-08 14:28:33 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 14:28:33 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 14:28:33 | INFO     | discord.client | logging in using static token
+2026-11-08 14:28:34 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 14:28:34 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 14:28:34 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 14:28:34 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 14:28:34 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 14:28:34 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 14:28:35 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: e5d6008e0bb9fd8c0fd7dd5a13dd8c48).
+2026-11-08 14:28:37 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 14:29:11 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 14:29:11 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:29:15 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:29:33 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:29:34 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:29:34 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:29:34 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:29:34 | ERROR    | discord.ui.view | Ignoring exception in view <ConfirmVerificationView timeout=600 children=1> for item <Button style=<ButtonStyle.success: 3> url=None disabled=False label='Confirm Verification' emoji=None row=None sku_id=None id=None>
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\ui\view.py", line 598, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\nated\PBAC_V1\src\cogs\verification.py", line 86, in confirm
+    success, message = await self.cog.rank_sync.sync_member(interaction.user)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\src\services\rank_sync.py", line 108, in sync_member
+    await self._apply_roles(member, desired_ids, base_managed_ids)
+  File "C:\Users\nated\PBAC_V1\src\services\rank_sync.py", line 62, in _apply_roles
+    remove = [role for role in member.roles if role.id in managed_ids and role.id not in desired_id]
+                                                                                         ^^^^^^^^^^
+NameError: name 'desired_id' is not defined. Did you mean: 'desired_ids'?
+2026-11-08 14:29:44 | INFO     | src.core.bot | Shutting down PBA Command bot.
+2026-11-08 14:29:44 | INFO     | src.database.connection | Database connection pool disposed.
+2026-11-08 14:29:44 | INFO     | __main__ | Shutdown requested from the terminal.
+2026-11-08 14:31:29 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 14:31:29 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 14:31:29 | INFO     | discord.client | logging in using static token
+2026-11-08 14:31:30 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 14:31:30 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 14:31:30 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 14:31:30 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 14:31:30 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 14:31:30 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 14:31:31 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: f21cf9b3d82635bc89b3568efb91e9f2).
+2026-11-08 14:31:33 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 14:31:57 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 14:31:57 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:32:15 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:32:15 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:32:15 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:32:16 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:32:16 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=912434144
+2026-11-08 14:37:46 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 14:37:46 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 14:37:46 | INFO     | discord.client | logging in using static token
+2026-11-08 14:37:47 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 14:37:47 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 14:37:47 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 14:37:47 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 14:37:47 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 14:37:47 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 14:37:48 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: ed90a780a73952e87799a51a653e33cf).
+2026-11-08 14:37:50 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 14:38:18 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 14:38:18 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:38:34 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:38:35 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:38:35 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:38:35 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:38:35 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=912434144
+2026-11-08 14:43:52 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 14:43:52 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 14:43:53 | INFO     | discord.client | logging in using static token
+2026-11-08 14:43:53 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 14:43:53 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 14:43:53 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 14:43:53 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 14:43:53 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 14:43:54 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 14:43:54 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 6e1e30a73cc8c689b892917c57bfc60f).
+2026-11-08 14:43:56 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 14:44:12 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 14:44:12 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:44:27 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:44:27 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:44:28 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:44:28 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:44:28 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=912434144
+2026-11-08 14:46:38 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 14:46:38 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/6002399977 "HTTP/1.1 200 OK"
+2026-11-08 14:46:51 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/6002399977 "HTTP/1.1 200 OK"
+2026-11-08 14:48:21 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 14:48:21 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 14:48:22 | INFO     | discord.client | logging in using static token
+2026-11-08 14:48:22 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 14:48:22 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 14:48:22 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 14:48:22 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 14:48:22 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 14:48:22 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 14:48:23 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: f54982a2ac4892f6f68f00619b9c212d).
+2026-11-08 14:48:25 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 14:48:58 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 14:48:58 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:49:15 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:49:15 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:49:15 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:49:16 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:49:16 | INFO     | src.services.rank_sync | Rank mapping file: C:\Users\nated\PBAC_V1\data\verification\rank_mapping.json
+2026-11-08 14:49:16 | INFO     | src.services.rank_sync | General mapping exists: True
+2026-11-08 14:49:16 | INFO     | src.services.rank_sync | Loaded rank IDs: ['916406041', '916000057', '916426060', '916682067', '915840034', '916406042', '916044050', '915914064', '915972099', '916066052', '916608028', '916414053', '916038042', '916234048', '916662052', '915946063', '916044053', '916316034', '917540026', '912434144', '915818053', '915914070', '916414056', '915906040', '916376041', '916044055', '916342058']
+2026-11-08 14:49:17 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=912434144
+2026-11-08 14:51:49 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 14:51:49 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 14:51:49 | INFO     | discord.client | logging in using static token
+2026-11-08 14:51:50 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 14:51:50 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 14:51:50 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 14:51:50 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 14:51:50 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 14:51:50 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 14:51:51 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: ea018b2da06497d6c0cb42c6f04feeb0).
+2026-11-08 14:51:53 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 14:52:16 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 14:52:16 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:52:36 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:52:36 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:52:37 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:52:37 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:52:37 | INFO     | src.services.rank_sync | Rank mapping file: C:\Users\nated\PBAC_V1\data\verification\rank_mapping.json
+2026-11-08 14:52:37 | INFO     | src.services.rank_sync | General mapping exists: True
+2026-11-08 14:52:37 | INFO     | src.services.rank_sync | Loaded rank IDs: ['916406041', '916000057', '916426060', '916682067', '915840034', '916406042', '916044050', '915914064', '915972099', '916066052', '916608028', '916414053', '916038042', '916234048', '916662052', '915946063', '916044053', '916316034', '917540026', '912434144', '915818053', '915914070', '916414056', '915906040', '916376041', '916044055', '916342058']
+2026-11-08 14:52:37 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=915346032

@@ -65,7 +65,6 @@
       "role_keys": [
         "enlisted"
       ]
-    }
     },
     "915840034": {
       "name": "Sergeant",
@@ -190,7 +189,7 @@
         "senior_genstaff"
       ]
     },
-    "916662053": {
+    "912434144": {
       "name": "General",
       "abbreviation": "OF-9",
       "role_keys": [
@@ -250,7 +249,7 @@
         "officer_perms"
       ]
     },
-    "916342058": {
+    "915346032": {
       "name": "Board of Directors",
       "abbreviation": "BOD",
       "role_keys": [
@@ -259,3 +258,4 @@
       ]
     }
   }
+}

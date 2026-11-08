@@ -4,7 +4,7 @@ from pathlib import Path
 import discord
 
 from src.core import __version__
-from src.utils.constants import PBAC_RED, PBAC_YELLOW
+from src.utils.constants import PBAC_RED, PBAC_YELLOW, PBAC_GREY
 from src.utils.json_loader import load_json_object
 
 # Project root:
@@ -61,12 +61,13 @@ def create_verification_panel() -> tuple[discord.Embed, list[discord.File]]:
     description = str(
         panel.get(
             "description",
-            "Link your Roblox account to access the appropriate SFD Discord channels.",
+            "Link your Roblox account to access the appropriate PBAC Discord channels.",
         )
     )
     embed, files = create_pbac_embed(
         title=title,
         description=description,
+        colour=discord.Colour(PBAC_GREY)
     )
 
     instructions = panel.get("instructions", [])

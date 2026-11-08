@@ -1,11 +1,9 @@
 {
     "title": "Polvito's British Army | Account Verification",
-    "description": "Link your Roblox account to verify your identity and receive the appropriate British Army Discord rank. Join our roblox community here: https://www.roblox.com/communities/1012772775/PBA-British-Army!",
+    "description": "Join our roblox community here: https://www.roblox.com/communities/1012772775/PBA-British-Army!",
     "instructions": [
-        "Select **Verify Account** and enter your exact Roblox username.",
-        "The bot will provide a unique verification code privately.",
-        "Add that code to your public Roblox profile description and save the change.",
-        "Return to Discord and select **Confirm Verification**."
+        "**Verify Account** connects your Roblox account to your Discord account.",
+        "**Update Roles** updates your Discord roles based upon your Roblox roles."
     ],
     "privacy_notice": "Your Roblox user ID and username are stored to maintain your account link. Your verification code expires and is not stored in plain text."
 }
