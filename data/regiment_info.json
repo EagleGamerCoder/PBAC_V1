@@ -1,0 +1,18 @@
+{
+    "1012772775": {
+        "_information" : "Main Server",
+      
+        "info_1": {
+            "title": "Chain of Command",
+            "description": "**Leadership <@1568431637392392284>**\n[1IC] Field Marshal\n[2IC] Deputy Field Marshal\n\n**Chiefs of Staff <@1567327486591639675>**\n[CDS] Chief of the Defence Staff\n[VCDS] Vice Chief of the Defence Staff\n[CGS] Chief of the General Staff\n[DCGS] Deputy Chief of the General Staff\n[ACGS] Assistant Chief of the General Staff\n[ASM] Army Sergeant Major\n\n**Senior General Staff <@1568373261597806813>**\n[OF-9] General\n[OF-8] Lieutenant General\n[OF-7] Major General\n[OR-9B] Regimental Sergeant Major\n\n**General Staff <@1567327517503660192>**\n[OF-6] Brigadier\n[OF-5] Colonel\n[OF-4] Lieutenant Colonel\n\n**Officer Staff <@1568371366447685712>**\n[OF-3] Major\n[OF-2] Captain\n [OF-1] Lieutenant\n[OF-1] Second Lieutenant\n\n**Enlisted <@1568372792632803398>**\n[OR-9] Warrant Officer Class One\n[OR-8] Warrant Officer Class Two\n[OR-7] Staff Sergeant\n[OR-6] Sergeant\n[OR-4] Corporal\n[OR-3] Lance Corporal\n[OR-2] Private\n[OR-1] Recruit (Basic Military Training)\n\n**External <@1568632560215662652>**\nCivilian"
+        },
+        "info_2": {
+            "title": "",
+            "description": ""
+        },
+        "info_3": {
+            "title": "",
+            "description": ""
+        },
+    }
+}
