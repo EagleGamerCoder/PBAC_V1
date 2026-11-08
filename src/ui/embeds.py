@@ -27,7 +27,7 @@ def create_pbac_embed(*, title: str, description: str | None = None, colour: dis
     embed = discord.Embed(
         title=title,
         description=description,
-        colour=colour or discord.Colour(PBAC_YELLOW),
+        colour=colour or discord.Colour(PBAC_GREY),
         timestamp=datetime.now(timezone.utc),
     )
 
