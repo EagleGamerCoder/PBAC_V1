@@ -2960,3 +2960,24 @@ NameError: name 'desired_id' is not defined. Did you mean: 'desired_ids'?
 2026-11-08 14:52:37 | INFO     | src.services.rank_sync | General mapping exists: True
 2026-11-08 14:52:37 | INFO     | src.services.rank_sync | Loaded rank IDs: ['916406041', '916000057', '916426060', '916682067', '915840034', '916406042', '916044050', '915914064', '915972099', '916066052', '916608028', '916414053', '916038042', '916234048', '916662052', '915946063', '916044053', '916316034', '917540026', '912434144', '915818053', '915914070', '916414056', '915906040', '916376041', '916044055', '916342058']
 2026-11-08 14:52:37 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=915346032
+2026-11-08 15:00:20 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 15:00:20 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 15:00:21 | INFO     | discord.client | logging in using static token
+2026-11-08 15:00:21 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 15:00:21 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 15:00:21 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 15:00:21 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 15:00:21 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 15:00:22 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 15:00:23 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 08d740a11a8644df25639ecf33eac39b).
+2026-11-08 15:00:25 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 15:00:38 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 15:00:38 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 15:00:54 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 15:00:55 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 15:00:55 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 15:00:55 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 15:00:55 | INFO     | src.services.rank_sync | Rank mapping file: C:\Users\nated\PBAC_V1\data\verification\rank_mapping.json
+2026-11-08 15:00:55 | INFO     | src.services.rank_sync | General mapping exists: True
+2026-11-08 15:00:55 | INFO     | src.services.rank_sync | Loaded rank IDs: ['916406041', '916000057', '916426060', '916682067', '915840034', '916406042', '916044050', '915914064', '915972099', '916066052', '916608028', '916414053', '916038042', '916234048', '916662052', '915946063', '916044053', '916316034', '917540026', '912434144', '915818053', '915914070', '916414056', '915906040', '916376041', '916044055', '915346032']
+2026-11-08 15:00:58 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=915346032
