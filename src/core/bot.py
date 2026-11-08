@@ -24,6 +24,8 @@ from src.services.rank_sync import RankSyncService
 INITIAL_EXTENSIONS: tuple[str, ...] = (
     "src.cogs.utilities",
     "src.cogs.verification",
+    "src.cogs.message",
+    "src.cogs.ticket",
 )
 
 """MAIN BOT CLASS"""
