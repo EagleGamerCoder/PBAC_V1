@@ -1262,3 +1262,1543 @@ aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gatewa
 2026-11-07 13:25:12 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
 2026-11-07 13:25:12 | INFO     | discord.gateway | Shard ID None session has been invalidated.
 2026-11-07 13:25:12 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 13:25:18 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 962a90bebdd895a0fa387b20f05d9987).
+2026-11-07 13:25:20 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-07 13:35:17 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/search?keyword=shifu_3232&limit=10 "HTTP/1.1 200 OK"
+2026-11-07 13:35:17 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/2475044905 "HTTP/1.1 200 OK"
+2026-11-07 13:35:51 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/2475044905 "HTTP/1.1 200 OK"
+2026-11-07 13:35:52 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/2475044905/groups/roles "HTTP/1.1 200 OK"
+2026-11-07 13:35:52 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/2475044905 "HTTP/1.1 200 OK"
+2026-11-07 13:35:53 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/2475044905/groups/roles "HTTP/1.1 200 OK"
+2026-11-07 13:41:32 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/search?keyword=blauminator&limit=10 "HTTP/1.1 200 OK"
+2026-11-07 13:41:32 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/7884218917 "HTTP/1.1 200 OK"
+2026-11-07 13:47:31 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/7884218917 "HTTP/1.1 200 OK"
+2026-11-07 13:47:31 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/7884218917/groups/roles "HTTP/1.1 200 OK"
+2026-11-07 13:47:31 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/7884218917 "HTTP/1.1 200 OK"
+2026-11-07 13:47:32 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/7884218917/groups/roles "HTTP/1.1 200 OK"
+2026-11-07 13:47:32 | INFO     | src.cogs.verification | Verified Discord user_id=652482188671057920 Roblox user_id=7884218917 rank_id=0
+2026-11-07 13:52:37 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/search?keyword=blauminator&limit=10 "HTTP/1.1 200 OK"
+2026-11-07 13:52:37 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/7884218917 "HTTP/1.1 200 OK"
+2026-11-07 13:53:57 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/search?keyword=SWATx2Unsin&limit=10 "HTTP/1.1 200 OK"
+2026-11-07 13:53:57 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/2887274231 "HTTP/1.1 200 OK"
+2026-11-07 14:13:15 | ERROR    | discord.ext.commands.bot | Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ure" is not found
+2026-11-07 16:31:44 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 16:31:45 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-07 16:31:46 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 20:10:14 | ERROR    | discord.client | Attempting a reconnect in 1.64s
+Traceback (most recent call last):
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 422, in from_client
+    await ws.identify()
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 489, in identify
+    await self.call_hooks('before_identify', self.shard_id, initial=self._initial_identify)
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\state.py", line 353, in call_hooks
+    await coro(*args, **kwargs)
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 590, in _call_before_identify_hook
+    await self.before_identify_hook(shard_id, initial=initial)
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 612, in before_identify_hook
+    await asyncio.sleep(5.0)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 702, in sleep
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 487, in wait_for
+    async with timeouts.timeout(timeout):
+               ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\timeouts.py", line 114, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+2026-11-07 20:10:15 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 20:10:16 | ERROR    | discord.client | Attempting a reconnect in 3.43s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-07 20:10:16 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 20:10:24 | ERROR    | discord.client | Attempting a reconnect in 1.24s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-07 20:10:25 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 20:10:26 | ERROR    | discord.client | Attempting a reconnect in 0.13s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-07 20:10:26 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 20:10:26 | ERROR    | discord.client | Attempting a reconnect in 18.41s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-07 20:10:26 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 20:10:45 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-07 20:10:45 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 20:10:50 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 439f9b9e53a932dcaf8c8044fd768d2a).
+2026-11-07 20:10:52 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-07 20:11:00 | WARNING  | discord.gateway | Shard ID None has stopped responding to the gateway. Closing and restarting.
+2026-11-07 21:24:39 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 21:24:39 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-07 21:24:39 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 21:24:45 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 95de186e648f517f5ab114829ddf68fb).
+2026-11-07 21:24:47 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-07 21:26:08 | ERROR    | asyncio | Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+2026-11-07 21:26:08 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-07 21:26:08 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-07 21:26:08 | ERROR    | src.services.rank_sync | Could not load rank mapping C:\Users\nated\PBAC_V1\data\verification\rank_mapping.json: Extra data: line 256 column 4 (char 6330)
+2026-11-07 21:29:02 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 21:29:02 | ERROR    | discord.client | Attempting a reconnect in 0.88s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-07 21:29:02 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 21:29:03 | ERROR    | discord.client | Attempting a reconnect in 2.02s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-07 21:29:03 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 21:36:54 | ERROR    | discord.client | Attempting a reconnect in 5.59s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-07 21:36:54 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 21:48:41 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-07 21:48:41 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 21:48:47 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 291f6f973a1ef1ca6fda52b5c395123e).
+2026-11-07 21:48:49 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-07 22:45:30 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 22:45:30 | ERROR    | discord.client | Attempting a reconnect in 0.96s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-07 22:45:30 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 22:45:31 | ERROR    | discord.client | Attempting a reconnect in 1.11s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-07 22:45:31 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 22:46:37 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-07 22:46:37 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-07 22:46:43 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 8cc2c013757ad73254c0cc07298d3aab).
+2026-11-07 22:46:45 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 00:50:52 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 00:50:52 | ERROR    | discord.client | Attempting a reconnect in 0.69s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-08 00:50:52 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 00:50:53 | ERROR    | discord.client | Attempting a reconnect in 1.29s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-08 00:50:53 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 10:14:17 | ERROR    | discord.client | Attempting a reconnect in 1.74s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-08 10:14:17 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 10:14:19 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 10:14:20 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 10:14:25 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 2676d0bb5dbde0eda80ef27a03adf96d).
+2026-11-08 10:14:27 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 10:23:27 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 10:23:27 | ERROR    | discord.client | Attempting a reconnect in 1.57s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-08 10:23:27 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 10:23:29 | ERROR    | discord.client | Attempting a reconnect in 3.64s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-08 10:23:29 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:26:18 | ERROR    | discord.client | Attempting a reconnect in 1.28s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-08 11:26:18 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:26:20 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 11:26:20 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:26:25 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: fafb7fd8a742f07b1dcba6acb80b2003).
+2026-11-08 11:26:27 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 11:44:39 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:44:40 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 11:44:40 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:44:46 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: dc2efaa9e331498fda1d87e2f5454894).
+2026-11-08 11:44:48 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 11:49:24 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:49:25 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 11:49:25 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:49:31 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 4ba78988de874e2f9b457cf518a022f0).
+2026-11-08 11:49:33 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 11:53:53 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:53:53 | ERROR    | discord.client | Attempting a reconnect in 2.72s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-08 11:53:53 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:56:38 | ERROR    | discord.client | Attempting a reconnect in 0.83s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-08 11:56:38 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 11:56:39 | ERROR    | discord.client | Attempting a reconnect in 8.72s
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 1312, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-11-08 11:56:39 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:09:41 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 12:09:41 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:09:46 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 26f077d310f3c75793cac4267f98a307).
+2026-11-08 12:09:48 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 12:16:45 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:16:46 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 12:16:46 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:16:51 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 7d4a63510dca77fe024f1dcfa116d7df).
+2026-11-08 12:16:53 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 12:26:22 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:26:22 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 12:26:22 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:31:49 | ERROR    | discord.client | Attempting a reconnect in 0.86s
+Traceback (most recent call last):
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 422, in from_client
+    await ws.identify()
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\gateway.py", line 489, in identify
+    await self.call_hooks('before_identify', self.shard_id, initial=self._initial_identify)
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\state.py", line 353, in call_hooks
+    await coro(*args, **kwargs)
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 590, in _call_before_identify_hook
+    await self.before_identify_hook(shard_id, initial=initial)
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 612, in before_identify_hook
+    await asyncio.sleep(5.0)
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 702, in sleep
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 487, in wait_for
+    async with timeouts.timeout(timeout):
+               ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\nated\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\timeouts.py", line 114, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+2026-11-08 12:31:49 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:31:50 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 12:31:50 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:31:56 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 7f840d2ece26d38bd1b24279fc1568e9).
+2026-11-08 12:31:58 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 12:32:26 | WARNING  | discord.gateway | Shard ID None has stopped responding to the gateway. Closing and restarting.
+2026-11-08 12:38:40 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:38:41 | INFO     | discord.gateway | Shard ID None has successfully RESUMED session 7f840d2ece26d38bd1b24279fc1568e9.
+2026-11-08 12:44:20 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:44:21 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 12:44:21 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 12:44:26 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 397212701a79acb16771184db2fc0b47).
+2026-11-08 12:44:28 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 13:20:28 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 13:20:28 | INFO     | discord.gateway | Shard ID None session has been invalidated.
+2026-11-08 13:20:29 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 13:20:34 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 1e797276a6eb68fb4f07aa285e6233c8).
+2026-11-08 13:20:36 | INFO     | src.core.bot | Discord gateway session is ready again.
+2026-11-08 13:55:19 | WARNING  | src.core.bot | Disconnected from the Discord gateway: waiting for reconnection.
+2026-11-08 13:55:19 | INFO     | discord.gateway | Shard ID None has successfully RESUMED session 1e797276a6eb68fb4f07aa285e6233c8.
+2026-11-08 13:56:21 | ERROR    | src.utils.errors | Unhandled application-command error for user_id=1434931977571668113 command=verification-panel
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\src\cogs\verification.py", line 125, in verification_panel
+    embed, files = create_verification_panel()
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nated\PBAC_V1\src\ui\embeds.py", line 67, in create_verification_panel
+    embed, files = create_pbac_embed(
+                   ~~~~~~~~~~~~~~~~~^
+        title=title,
+        ^^^^^^^^^^^^
+        description=description,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nated\PBAC_V1\src\ui\embeds.py", line 23, in create_pbac_embed
+    raise FileNotFoundError(f"PBAC badge image was not found: {BADGE_PATH}")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: SFD badge image was not found: C:\Users\nated\PBAC_V1\assets\branding\temp_badge.png
+2026-11-08 13:57:35 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 13:57:35 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 13:57:36 | INFO     | discord.client | logging in using static token
+2026-11-08 13:57:37 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 13:57:37 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 13:57:37 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 13:57:37 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 13:57:37 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 13:57:37 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 13:57:39 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 703be419fb0653a0d428e47efe14a43b).
+2026-11-08 13:57:41 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 13:58:11 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/search?keyword=EagleGamerCity&limit=10 "HTTP/1.1 200 OK"
+2026-11-08 13:58:11 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 13:58:48 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 13:58:49 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 13:58:49 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 13:58:50 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:07:49 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 14:07:49 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 14:07:49 | INFO     | discord.client | logging in using static token
+2026-11-08 14:07:50 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 14:07:50 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 14:07:50 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 14:07:50 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 14:07:50 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 14:07:51 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 14:07:51 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: bab3113c12f261b8ec21b751a401a62e).
+2026-11-08 14:07:53 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 14:08:40 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/search?keyword=EagleGamerCity&limit=10 "HTTP/1.1 200 OK"
+2026-11-08 14:08:53 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/search?keyword=EagleGamerCity&limit=10 "HTTP/1.1 429 Too Many Requests"
+2026-11-08 14:11:44 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 14:11:44 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 14:11:45 | INFO     | discord.client | logging in using static token
+2026-11-08 14:11:45 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 14:11:45 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 14:11:45 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 14:11:45 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 14:11:45 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 14:11:45 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 14:11:46 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: e86798ae2ec9cdd84287d19930a0af30).
+2026-11-08 14:11:48 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 14:12:28 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 14:12:28 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:12:49 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:12:49 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:12:49 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:12:50 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
+2026-11-08 14:12:50 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=150

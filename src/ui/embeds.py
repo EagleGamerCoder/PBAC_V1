@@ -11,11 +11,11 @@ from src.utils.json_loader import load_json_object
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 BRANDING_DIR = PROJECT_ROOT / "assets" / "branding"
-BADGE_PATH = BRANDING_DIR / "badge.png" # TEMP
+BADGE_PATH = BRANDING_DIR / "badge.png" 
 BANNER_PATH = BRANDING_DIR / "temp_banner.png" # TEMP
 
 
-def create_pbac_embed(*, title: str, description: str | None = None) -> tuple[discord.Embed, list[discord.File]]:
+def create_pbac_embed(*, title: str, description: str | None = None, colour: discord.Colour | None = None) -> tuple[discord.Embed, list[discord.File]]:
     """Create a consistently branded PBAC embed and its image attachments."""
 
     # Fail clearly if an expected graphic is missing.
@@ -27,7 +27,7 @@ def create_pbac_embed(*, title: str, description: str | None = None) -> tuple[di
     embed = discord.Embed(
         title=title,
         description=description,
-        colour=discord.Colour(PBAC_YELLOW),
+        colour=colour or discord.Colour(PBAC_YELLOW),
         timestamp=datetime.now(timezone.utc),
     )
 

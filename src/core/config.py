@@ -71,6 +71,7 @@ class Settings:
     nickname_format: str
     bod_field_marshal_user_id: int
     bod_second_in_command_user_id: int
+    bot_developer_discord_id: int
     log_directory: Path
     project_root: Path
 
@@ -111,6 +112,7 @@ def load_config() -> Settings:
     nickname_format = os.getenv("NICKNAME_FORMAT", "[{rank_abbr}] {username}").strip() or "[{rank_abbr}] {username}"
     bod_field_marshal_user_id = parse_id("BOD_FIELD_MARSHAL_USER_ID", os.getenv("BOD_FIELD_MARSHAL_USER_ID"))
     bod_second_in_command_user_id = parse_id("BOD_SECOND_IN_COMMAND_USER_ID", os.getenv("BOD_SECOND_IN_COMMAND_USER_ID"))
+    bot_developer_discord_id = parse_id("BOT_DEVELOPER_DISCORD_ID", os.getenv("BOT_DEVELOPER_DISCORD_ID"))
     if bod_field_marshal_user_id and bod_field_marshal_user_id == bod_second_in_command_user_id:
         raise ConfigurationError("BOD_FIELD_MARSHAL_USER_ID and BOD_SECOND_IN_COMMAND_USER_ID must be different Roblox user IDs.")
     if not all(token in nickname_format for token in ("{username}",)):
@@ -135,6 +137,7 @@ def load_config() -> Settings:
         nickname_format=nickname_format,
         bod_field_marshal_user_id=bod_field_marshal_user_id,
         bod_second_in_command_user_id=bod_second_in_command_user_id,
+        bot_developer_discord_id=bot_developer_discord_id,
         log_directory=log_directory,
         project_root=PROJECT_ROOT,
     )

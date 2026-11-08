@@ -255,7 +255,7 @@ class Utilities(commands.Cog):
             return
         
         user_id = interaction.user.id
-        if user_id != 1434931977571668113:
+        if user_id != self.bot.settings.bot_developer_discord_id:
             embed, files = create_pbac_embed(title="Nice Try", description=f"Yeah you're not eagle buddy, you could never outmatch his aura {interaction.user.mention}.")
             await channel.send(embed=embed, files=files)
             return

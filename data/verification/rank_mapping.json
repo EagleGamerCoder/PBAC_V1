@@ -1,231 +1,261 @@
 {
-  "_instructions": "Replace every REPLACE_WITH_... rank ID with the actual numerical Roblox group rank ID. Configure Discord role IDs only in roles. There are NO individual rank roles. OR-1 receives Recruit; OR-2 through OR-9 receive no enlisted category role; OF-0 through OF-6 receive Officer; OF-7 through OF-9 receive General Staff; OR-9B RSM receives General Staff and Senior Enlisted Officer. COS appointments and BOD receive the COS role. BOD nickname prefixes are selected by Roblox user ID from .env.",
+  "_instructions": "Configure Discord role IDs only in 'roles'. BOD nickname prefixes are selected by Roblox user ID from .env.",
   
   
   "roles": {
-    "verified": null,
-    "civilian": null,
-    "recruit": null,
-    "enlisted": null,
-    "officer": null,
-    "genstaff": null,
-    "senior_enlisted_officer": null,
-    "cos": null
+    "verified": 1567772393412362241,
+    "banner1": 1567625120502120619,
+    "banner2": 1567624912909111439,
+    "banner3": 1568371922465460314,
+    "banner4": 1568372024835838232,
+
+    "civilian": 1568632560215662652,
+    "recruit": 1568632321630933083,
+    "enlisted": 1568372792632803398,
+    "officer": 1568371366447685712,
+    "officer_perms": 1568371673986506752,
+    "genstaff": 1567327517503660192,
+    "senior_genstaff": 1568373261597806813,
+    "regimental_sergeant_major": 1567623713271185449,
+    "cos": 1567327486591639675,
+    "leadership": 1568431637392392284,
+
+    "head_admin": 1567327594968252447,
+    "admin": 1567622965267398696,
+    "mod": 1567623435574579420,
+    "support_ii": 1567623247422292038,
+    "ets_log": 1568371675286999120,
+    "rmp_log": 1568371674519445504,
+    "aest": 1568372022981959760,
+    "gmt": 1568372023535870012,
+    "est": 1568372024512876666,
+    "nitro_booster": 1567387733083820094,
+    "dev": 1567634160364032000,
+    "community_manager": 1568646549897089205,
+    "op": 1567327465381036154
   },
 
 
   "ranks": {
-    "REPLACE_WITH_RECRUIT_RANK_ID": {
+    "916406041": {
       "name": "Recruit (Basic Military Training)",
       "abbreviation": "OR-1",
       "role_keys": [
-        "recruit"
+        "recruit",
+        "enlisted"
       ]
     },
-    "REPLACE_WITH_OR2_PRIVATE_RANK_ID": {
+    "916000057": {
       "name": "Private",
       "abbreviation": "OR-2",
-      "role_keys": []
+      "role_keys": [
+        "enlisted"
+      ]
     },
-    "REPLACE_WITH_OR3_LANCE_CORPORAL_RANK_ID": {
+    "916426060": {
       "name": "Lance Corporal",
       "abbreviation": "OR-3",
-      "role_keys": []
+      "role_keys": [
+        "enlisted"
+      ]
     },
-    "REPLACE_WITH_OR4_CORPORAL_RANK_ID": {
+    "916682067": {
       "name": "Corporal",
       "abbreviation": "OR-4",
-      "role_keys": []
+      "role_keys": [
+        "enlisted"
+      ]
+    }
     },
-    "REPLACE_WITH_OR5_SERGEANT_RANK_ID": {
+    "915840034": {
       "name": "Sergeant",
-      "abbreviation": "OR-5",
-      "role_keys": []
-    },
-    "REPLACE_WITH_OR6_STAFF_SERGEANT_RANK_ID": {
-      "name": "Staff Sergeant",
       "abbreviation": "OR-6",
-      "role_keys": []
+      "role_keys": [
+        "enlisted"
+      ]
     },
-    "REPLACE_WITH_OR7_COLOUR_SERGEANT_RANK_ID": {
-      "name": "Colour Sergeant",
+    "916406042": {
+      "name": "Staff Sergeant",
       "abbreviation": "OR-7",
-      "role_keys": []
+      "role_keys": [
+        "enlisted"
+      ]
     },
-    "REPLACE_WITH_OR8_SERGEANT_MAJOR_RANK_ID": {
-      "name": "Sergeant Major",
+    "916044050": {
+      "name": "Warrant Officer Class Two",
       "abbreviation": "OR-8",
-      "role_keys": []
+      "role_keys": [
+        "enlisted"
+      ]
     },
-    "REPLACE_WITH_OR8_WARRANT_OFFICER_RANK_ID": {
-      "name": "Warrant Officer",
-      "abbreviation": "OR-8",
-      "role_keys": []
-    },
-    "REPLACE_WITH_OR9_WARRANT_OFFICER_RANK_ID": {
-      "name": "Warrant Officer",
+    "915914064": {
+      "name": "Warrant Officer Class One",
       "abbreviation": "OR-9",
-      "role_keys": []
+      "role_keys": [
+        "enlisted"
+      ]
     },
-    "REPLACE_WITH_OR9B_RSM_RANK_ID": {
+    "915972099": {
       "name": "Regimental Sergeant Major",
       "abbreviation": "OR-9B",
       "role_keys": [
         "genstaff",
-        "senior_enlisted_officer"
+        "senior_genstaff",
+        "regimental_sergeant_major"
       ]
     },
-    "REPLACE_WITH_OF0_OFFICER_CADET_RANK_ID": {
+    "916066052": {
       "name": "Officer Cadet",
-      "abbreviation": "OF-0",
+      "abbreviation": "OF-D",
       "role_keys": [
         "officer"
       ]
     },
-    "REPLACE_WITH_OF1_SECOND_LIEUTENANT_RANK_ID": {
+    "916608028": {
       "name": "Second Lieutenant",
       "abbreviation": "OF-1",
       "role_keys": [
-        "officer"
+        "officer",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_OF1_LIEUTENANT_RANK_ID": {
+    "916414053": {
       "name": "Lieutenant",
       "abbreviation": "OF-1",
       "role_keys": [
-        "officer"
+        "officer",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_OF2_CAPTAIN_RANK_ID": {
+    "916038042": {
       "name": "Captain",
       "abbreviation": "OF-2",
       "role_keys": [
-        "officer"
+        "officer",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_OF3_MAJOR_RANK_ID": {
+    "916234048": {
       "name": "Major",
       "abbreviation": "OF-3",
       "role_keys": [
-        "officer"
+        "officer",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_OF4_LIEUTENANT_COLONEL_RANK_ID": {
+    "916662052": {
       "name": "Lieutenant Colonel",
       "abbreviation": "OF-4",
       "role_keys": [
-        "officer"
+        "officer",
+        "officer_perms",
+        "genstaff"
       ]
     },
-    "REPLACE_WITH_OF5_COLONEL_RANK_ID": {
+    "915946063": {
       "name": "Colonel",
       "abbreviation": "OF-5",
       "role_keys": [
-        "officer"
+        "officer",
+        "officer_perms",
+        "genstaff"
       ]
     },
-    "REPLACE_WITH_OF6_BRIGADIER_RANK_ID": {
+    "916044053": {
       "name": "Brigadier",
       "abbreviation": "OF-6",
       "role_keys": [
-        "officer"
+        "officer",
+        "officer_perms",
+        "genstaff"
       ]
     },
-    "REPLACE_WITH_OF7_MAJOR_GENERAL_RANK_ID": {
+    "916316034": {
       "name": "Major General",
       "abbreviation": "OF-7",
       "role_keys": [
-        "genstaff"
+        "officer",
+        "officer_perms",
+        "genstaff",
+        "senior_genstaff"
       ]
     },
-    "REPLACE_WITH_OF8_LIEUTENANT_GENERAL_RANK_ID": {
+    "917540026": {
       "name": "Lieutenant General",
       "abbreviation": "OF-8",
       "role_keys": [
-        "genstaff"
+        "officer",
+        "officer_perms",
+        "genstaff",
+        "senior_genstaff"
       ]
     },
-    "REPLACE_WITH_OF9_GENERAL_RANK_ID": {
+    "916662053": {
       "name": "General",
       "abbreviation": "OF-9",
       "role_keys": [
-        "genstaff"
+        "officer",
+        "officer_perms",
+        "genstaff",
+        "senior_genstaff"
       ]
     },
-    "REPLACE_WITH_FM_RANK_ID": {
-      "name": "Field Marshal",
-      "abbreviation": "FM",
-      "role_keys": [
-        "genstaff"
-      ]
-    },
-    "REPLACE_WITH_ASM_RANK_ID": {
+    "915818053": {
       "name": "Army Sergeant Major",
       "abbreviation": "ASM",
       "role_keys": [
-        "genstaff",
-        "senior_enlisted_officer"
+        "cos",
+        "regimental_sergeant_major",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_ACGS_RANK_ID": {
+    "915914070": {
       "name": "Assistant Chief of the General Staff",
       "abbreviation": "ACGS",
       "role_keys": [
-        "cos"
+        "cos",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_DCGS_RANK_ID": {
+    "916414056": {
       "name": "Deputy Chief of the General Staff",
       "abbreviation": "DCGS",
       "role_keys": [
-        "cos"
+        "cos",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_CGS_RANK_ID": {
+    "915906040": {
       "name": "Chief of the General Staff",
       "abbreviation": "CGS",
       "role_keys": [
-        "cos"
+        "cos",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_VCDS_RANK_ID": {
+    "916376041": {
       "name": "Vice Chief of the Defence Staff",
       "abbreviation": "VCDS",
       "role_keys": [
-        "cos"
+        "cos",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_CDS_RANK_ID": {
+    "916044055": {
       "name": "Chief of the Defence Staff",
       "abbreviation": "CDS",
       "role_keys": [
-        "cos"
+        "cos",
+        "leadership",
+        "officer_perms"
       ]
     },
-    "REPLACE_WITH_COS_RANK_ID": {
-      "name": "Chief of Staff",
-      "abbreviation": "COS",
-      "role_keys": [
-        "cos"
-      ]
-    },
-    "REPLACE_WITH_DEV_RANK_ID": {
-      "name": "Developer",
-      "abbreviation": "DEV",
-      "role_keys": []
-    },
-    "REPLACE_WITH_CDEV_RANK_ID": {
-      "name": "Chief Developer",
-      "abbreviation": "CDEV",
-      "role_keys": []
-    },
-    "REPLACE_WITH_BOD_RANK_ID": {
+    "916342058": {
       "name": "Board of Directors",
       "abbreviation": "BOD",
       "role_keys": [
-        "cos"
+        "cos",
+        "leadership"
       ]
     }
-  },
-  "bod_rank_id": "REPLACE_WITH_BOD_RANK_ID"
-}
+  }
