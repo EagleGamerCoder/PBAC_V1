@@ -130,6 +130,15 @@ class RobloxService:
             return role_id, role_name, rank_number
         return 0, "Guest", 0
 
+    async def check_group(self, group_id: int) -> bool:
+        try:
+            response = await self._get_json(f"{self.BASE_GROUPS}/v1/groups/{group_id}")
+            if not response:
+                return False
+            return True
+        except Exception:
+            return False
+
     async def get_profile_description(self, user_id: int) -> str:
         profile = await self.get_user(user_id)
         return str(profile.get("description") or "")
