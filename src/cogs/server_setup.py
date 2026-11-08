@@ -87,7 +87,7 @@ class SetupConfigModal(discord.ui.Modal, title="Setup step 1"):
             if three_info_chan_id != None and (not three_info_chan_id or not isinstance(three_info_chan_id, discord.TextChannel)):
                 raise SetupError(f"Could not find a valid text channel with the ID `{three_info_chan_id}` in this server.")
 
-            await self.cog.setup_service.start(guild.id, group_id, v_chan_id, r_chan_id, one_info_chan_id, two_info_chan_id, three_info_chan_id)
+            await self.cog.setup_service.start(interaction, guild.id, group_id, v_chan_id, r_chan_id, one_info_chan_id, two_info_chan_id, three_info_chan_id)
             await interaction.followup.send("Server setup Success.", ephemeral=True)
 
         except SetupError as e:
@@ -114,7 +114,7 @@ class ServerSetup(commands.Cog):
         """Update the setup components."""
         await interaction.response.defer(ephemeral=True, thinking=True)
         try: 
-            self.cog.setup_service.update(interaction.guild.id)
+            self.cog.setup_service.update(interaction, interaction.guild.id)
         except SetupError as e:
             await interaction.followup.send(str(e), ephemeral=True)
         
