@@ -100,7 +100,9 @@
       "role_keys": [
         "genstaff",
         "senior_genstaff",
-        "regimental_sergeant_major"
+        "regimental_sergeant_major",
+        "officer_perms",
+        "officer"
       ]
     },
     "916066052": {
@@ -254,7 +256,8 @@
       "abbreviation": "BOD",
       "role_keys": [
         "cos",
-        "leadership"
+        "leadership",
+        "officer_perms"
       ]
     }
   }
