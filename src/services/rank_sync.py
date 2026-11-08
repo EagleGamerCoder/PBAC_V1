@@ -143,11 +143,11 @@ class RankSyncService:
                     desired_ids.add(role_id)
 
                 abbreviation = str(entry.get("abbreviation") or rank_name)
-                is_bod = str(role_id) == str(config.get("bod_rank_id", ""))
+                is_bod = (str(entry.get("abbreviation", "")).upper() == "BOD")
                 if is_bod:
-                    if account.roblox_user_id == self.bod_field_marshal_user_id and self.bod_field_marshal_user_id:
+                    if (account.roblox_user_id == self.bod_field_marshal_user_id and self.bod_field_marshal_user_id):
                         abbreviation = "1IC"
-                    elif account.roblox_user_id == self.bod_second_in_command_user_id and self.bod_second_in_command_user_id:
+                    elif (account.roblox_user_id == self.bod_second_in_command_user_id and self.bod_second_in_command_user_id):
                         abbreviation = "2IC"
 
                 display_rank = str(entry.get("name") or rank_name)

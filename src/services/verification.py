@@ -84,7 +84,7 @@ class VerificationService:
 
             # Ownership verification is independent of group membership. Non-members
             # are linked as civilians and receive the configured Civilian role on sync.
-            rank_id, rank_name = await self.roblox.get_group_rank(challenge.roblox_user_id)
+            role_id, rank_name, rank_number = await self.roblox.get_group_role(challenge.roblox_user_id)
             linked_elsewhere = await repo.get_by_roblox_id(challenge.roblox_user_id)
             if linked_elsewhere and linked_elsewhere.discord_user_id != discord_user_id:
                 raise VerificationError("That Roblox account is already linked to another Discord account.")
@@ -93,7 +93,7 @@ class VerificationService:
                 discord_user_id=discord_user_id,
                 roblox_user_id=challenge.roblox_user_id,
                 roblox_username=challenge.roblox_username,
-                roblox_rank_id=rank_id,
+                roblox_rank_id=role_id,
                 roblox_rank_name=rank_name,
                 verified_at=datetime.utcnow(),
                 last_synced_at=datetime.utcnow(),
@@ -105,7 +105,7 @@ class VerificationService:
             except IntegrityError as exc:
                 await session.rollback()
                 raise VerificationError("This Roblox account is already linked to another Discord account.") from exc
-            return challenge.roblox_user_id, challenge.roblox_username, rank_id, rank_name
+            return challenge.roblox_user_id, challenge.roblox_username, role_id, rank_name
 
     async def get_link(self, discord_user_id: int) -> VerifiedAccount | None:
         async with self.database.session() as session:

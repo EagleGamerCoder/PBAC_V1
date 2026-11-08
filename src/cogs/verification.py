@@ -74,7 +74,7 @@ class ConfirmVerificationView(discord.ui.View):
     async def confirm(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:
         await interaction.response.defer(ephemeral=True, thinking=True)
         try:
-            _roblox_id, username, rank_id, rank_name = await self.cog.verification_service.confirm(interaction.user.id)
+            _roblox_id, username, role_id, rank_name = await self.cog.verification_service.confirm(interaction.user.id)
         except (VerificationError, RobloxAPIError) as exc:
             await interaction.followup.send(str(exc), ephemeral=True)
             return
@@ -89,7 +89,7 @@ class ConfirmVerificationView(discord.ui.View):
             # the Discord mapping yet. Explain that rank assignment needs staff configuration.
             await interaction.followup.send(
                 f"Your Roblox account **{username}** has been verified and linked.\n"
-                f"Detected group rank: **{rank_name}** (`{rank_id}`).\n\n"
+                f"Detected group rank: **{rank_name}** (`{role_id}`).\n\n"
                 f"However, Discord rank synchronisation could not complete: {message}",
                 ephemeral=True,
             )
@@ -99,7 +99,7 @@ class ConfirmVerificationView(discord.ui.View):
             f"Your Roblox account **{username}** has been verified and linked.\n{message}",
             ephemeral=True,
         )
-        logger.info("Verified Discord user_id=%s Roblox user_id=%s rank_id=%s", interaction.user.id, _roblox_id, rank_id)
+        logger.info("Verified Discord user_id=%s Roblox user_id=%s rank_id=%s", interaction.user.id, _roblox_id, role_id)
 
 
 class Verification(commands.Cog):

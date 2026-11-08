@@ -2802,3 +2802,28 @@ FileNotFoundError: SFD badge image was not found: C:\Users\nated\PBAC_V1\assets\
 2026-11-08 14:12:49 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
 2026-11-08 14:12:50 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/3469484568/groups/roles "HTTP/1.1 200 OK"
 2026-11-08 14:12:50 | INFO     | src.cogs.verification | Verified Discord user_id=1434931977571668113 Roblox user_id=3469484568 rank_id=150
+2026-11-08 14:20:34 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-08 14:20:34 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-08 14:20:34 | INFO     | discord.client | logging in using static token
+2026-11-08 14:20:35 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-08 14:20:35 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-08 14:20:35 | INFO     | src.core.bot | Loading 2 Discord extension(s).
+2026-11-08 14:20:35 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-08 14:20:35 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-08 14:20:35 | INFO     | src.core.bot | Synced 7 application command(s) to development guild 1567327391066624052.
+2026-11-08 14:20:36 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 35fd969e785c76f61b0f25c1be4e4649).
+2026-11-08 14:20:38 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-08 14:21:27 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-08 14:21:27 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:21:48 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/3469484568 "HTTP/1.1 200 OK"
+2026-11-08 14:21:48 | ERROR    | discord.ui.view | Ignoring exception in view <ConfirmVerificationView timeout=600 children=1> for item <Button style=<ButtonStyle.success: 3> url=None disabled=False label='Confirm Verification' emoji=None row=None sku_id=None id=None>
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\.venv\Lib\site-packages\discord\ui\view.py", line 598, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\nated\PBAC_V1\src\cogs\verification.py", line 77, in confirm
+    _roblox_id, username, rank_id, rank_name = await self.cog.verification_service.confirm(interaction.user.id)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nated\PBAC_V1\src\services\verification.py", line 87, in confirm
+    rank_id, rank_name = await self.roblox.get_group_rank(challenge.roblox_user_id)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RobloxService' object has no attribute 'get_group_rank'. Did you mean: 'get_group_role'?

@@ -30,10 +30,7 @@ class RobloxService:
     async def close(self) -> None:
         await self._client.aclose()
 
-    async def _request_json(
-        self, method: str, url: str, *, params: dict | None = None,
-        json_body: dict | None = None,
-    ) -> dict:
+    async def _request_json(self, method: str, url: str, *, params: dict | None = None, json_body: dict | None = None) -> dict:
         # A single bounded retry helps with transient Roblox throttling without
         # creating a request loop that makes rate limits worse.
         for attempt in range(2):
@@ -66,26 +63,16 @@ class RobloxService:
             except httpx.HTTPStatusError as exc:
                 status = exc.response.status_code
                 if status in (500, 502, 503, 504):
-                    raise RobloxAPIError(
-                        "Roblox is temporarily unavailable. Please try again shortly."
-                    ) from exc
-                raise RobloxAPIError(
-                    f"Roblox rejected the verification request (HTTP {status}). "
-                    "Please try again later."
-                ) from exc
+                    raise RobloxAPIError("Roblox is temporarily unavailable. Please try again shortly.") from exc
+                raise RobloxAPIError(f"Roblox rejected the verification request (HTTP {status}). \nPlease try again later.") from exc
             except (httpx.HTTPError, ValueError) as exc:
-                raise RobloxAPIError(
-                    "Roblox could not be reached. Please try again shortly."
-                ) from exc
+                raise RobloxAPIError("Roblox could not be reached. Please try again shortly.") from exc
 
             if not isinstance(data, dict):
                 raise RobloxAPIError("Roblox returned an unexpected response.")
             return data
 
-        raise RobloxAPIError(
-            "Roblox is temporarily rate-limiting verification requests. "
-            "Wait a minute before trying again."
-        )
+        raise RobloxAPIError("Roblox is temporarily rate-limiting verification requests.\nWait a minute before trying again.")
 
     async def _get_json(self, url: str, *, params: dict | None = None) -> dict:
         return await self._request_json("GET", url, params=params)
