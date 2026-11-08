@@ -83,3 +83,31 @@ def create_verification_panel() -> tuple[discord.Embed, list[discord.File]]:
         embed.add_field(name="Privacy", value=str(privacy_notice), inline=False)
 
     return embed, files
+
+def create_rules_panel() -> tuple[discord.Embed, list[discord.File]]:
+    """Build the public PBAC rules panel from its JSON definition."""
+    panel_path = PROJECT_ROOT / "data" / "panels" / "rules.json"
+    panel = load_json_object(panel_path)
+
+    title = str(panel.get("title", "~title~"))
+    description = str(
+        panel.get(
+            "description",
+            "~description~",
+        )
+    )
+    embed, files = create_pbac_embed(
+        title=title,
+        description=description,
+        colour=discord.Colour(PBAC_GREY)
+    )
+
+    support = panel.get("support")
+    if support:
+        embed.add_field(name="Support", value=str(support), inline=False)
+
+    enforcement = panel.get("enforcement")
+    if enforcement:
+        embed.add_field(name="Enforcement", value=str(enforcement), inline=False)
+
+    return embed, files
