@@ -28,6 +28,13 @@ class RobloxUsernameModal(discord.ui.Modal, title="Link your Roblox account"):
     async def on_submit(self, interaction: discord.Interaction) -> None:
         await interaction.response.defer(ephemeral=True, thinking=True)
         try:
+            if interaction.guild is None:
+                raise VerificationError("Verification must be started inside a configured Discord server.")
+            server_config = await self.cog.bot.setup_service.get_configuration(interaction.guild.id)
+            if server_config is None:
+                raise VerificationError(
+                    "This Discord server has not been configured yet. Ask an administrator to run /setup configure."
+                )
             code, user_id, canonical_name = await self.cog.verification_service.begin(
                 interaction.user.id, str(self.username.value)
             )
@@ -90,9 +97,18 @@ class ConfirmVerificationView(discord.ui.View):
 
     @discord.ui.button(label="Confirm Verification", style=discord.ButtonStyle.success)
     async def confirm(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:
+        if interaction.guild is None:
+            await interaction.response.send_message(
+                "Verification must be completed inside the configured Discord server.",
+                ephemeral=True,
+            )
+            return
         await interaction.response.defer(ephemeral=True, thinking=True)
         try:
-            _roblox_id, username, role_id, rank_name = await self.cog.verification_service.confirm(interaction.guild.id, interaction.user.id)
+            _roblox_id, username, role_id, rank_name = await self.cog.verification_service.confirm(
+                interaction.guild.id,
+                interaction.user.id,
+            )
         except (VerificationError, RobloxAPIError) as exc:
             await interaction.followup.send(str(exc), ephemeral=True)
             return
@@ -186,22 +202,31 @@ class Verification(commands.Cog):
 
     @tasks.loop(minutes=30)
     async def periodic_rank_sync(self) -> None:
-        guild = self.bot.get_guild(self.bot.settings.guild_id)
-        if guild is None:
-            return
         async with self.bot.database.session() as session:
             from src.database.repositories.verification_repository import VerificationRepository
             accounts = await VerificationRepository(session).list_accounts()
-        for account in accounts:
-            member = guild.get_member(account.discord_user_id)
-            if member is None:
-                continue
-            try:
-                success, message = await self.rank_sync.sync_member(member)
-                if not success:
-                    logger.warning("Automatic rank sync skipped for member_id=%s: %s", member.id, message)
-            except Exception:
-                logger.exception("Automatic rank sync failed for member_id=%s", member.id)
+
+        # The bot may be installed in several servers, each with its own group ID.
+        for guild in self.bot.guilds:
+            for account in accounts:
+                member = guild.get_member(account.discord_user_id)
+                if member is None:
+                    continue
+                try:
+                    success, message = await self.rank_sync.sync_member(member)
+                    if not success:
+                        logger.warning(
+                            "Automatic rank sync skipped for guild_id=%s member_id=%s: %s",
+                            guild.id,
+                            member.id,
+                            message,
+                        )
+                except Exception:
+                    logger.exception(
+                        "Automatic rank sync failed for guild_id=%s member_id=%s",
+                        guild.id,
+                        member.id,
+                    )
 
     @periodic_rank_sync.before_loop
     async def before_periodic_rank_sync(self) -> None:
