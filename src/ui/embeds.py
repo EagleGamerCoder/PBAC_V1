@@ -27,7 +27,8 @@ def create_pbac_embed(*, title: str, description: str | None = None, colour: dis
     embed = discord.Embed(
         title=title,
         description=description,
-        colour=colour or discord.Colour(PBAC_GREY)
+        colour=colour or discord.Colour(PBAC_GREY),
+        timestamp=discord.utils.utcnow()
     )
 
     """
@@ -44,7 +45,7 @@ def create_pbac_embed(*, title: str, description: str | None = None, colour: dis
     )
     # A consistent footer on all SFD embeds.
     embed.set_footer(
-        text=f"PBA Command • v{__version__} • {datetime.now(timezone.utc)}"
+        text=f"PBA Command • v{__version__}"
     )
 
     files = [

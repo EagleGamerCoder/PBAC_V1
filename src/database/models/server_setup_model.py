@@ -13,6 +13,6 @@ class ServerConfiguration(Base):
     verification_channel_id: Mapped[int] = mapped_column(BigInteger, nullable=False)
     rules_channel_id: Mapped[int] = mapped_column(BigInteger, nullable=False)
     
-    information_one_channel_id: Mapped[int] = mapped_column(BigInteger, nullable=False)
-    information_two_channel_id: Mapped[int] = mapped_column(BigInteger, nullable=False)
-    information_three_channel_id: Mapped[int] = mapped_column(BigInteger, nullable=False)
+    information_one_channel_id: Mapped[int] = mapped_column(BigInteger, nullable=False, default=0)
+    information_two_channel_id: Mapped[int] = mapped_column(BigInteger, nullable=False, default=0)
+    information_three_channel_id: Mapped[int] = mapped_column(BigInteger, nullable=False, default=0)

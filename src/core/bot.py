@@ -29,6 +29,7 @@ INITIAL_EXTENSIONS: tuple[str, ...] = (
     "src.cogs.message",
     "src.cogs.ticket",
     "src.cogs.server_setup",
+    "src.cogs.bot_status",
 )
 
 """MAIN BOT CLASS"""
