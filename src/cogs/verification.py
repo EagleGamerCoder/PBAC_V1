@@ -92,7 +92,7 @@ class ConfirmVerificationView(discord.ui.View):
     async def confirm(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:
         await interaction.response.defer(ephemeral=True, thinking=True)
         try:
-            _roblox_id, username, role_id, rank_name = await self.cog.verification_service.confirm(interaction.user.id)
+            _roblox_id, username, role_id, rank_name = await self.cog.verification_service.confirm(interaction.guild.id, interaction.user.id)
         except (VerificationError, RobloxAPIError) as exc:
             await interaction.followup.send(str(exc), ephemeral=True)
             return
