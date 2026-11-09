@@ -15,7 +15,8 @@ from src.utils.constants import APP_NAME
 from src.utils.errors import handle_app_command_error
 from src.database.connection import Database
 from src.database.base import Base
-from src.database.models import verification_model as _verification_model  # Register ORM tables.
+from src.database.models import verification_model as _verification_model  # Register verification ORM tables.
+from src.database.models import server_setup_model as _server_setup_model  # Register per-guild setup table.
 from src.services.roblox import RobloxService
 from src.services.verification import VerificationService
 from src.services.rank_sync import RankSyncService
@@ -66,15 +67,16 @@ class DiscordBot(commands.Bot):
             bod_second_in_command_user_id=settings.bod_second_in_command_user_id,
         )
         self.setup_service = SetupService(
-            self.database
+            self.database,
+            self.roblox
         )
         self._logged_first_ready = False
         self.tree.on_error = handle_app_command_error
 
     async def setup_hook(self) -> None:
         """Load extensions and synchronises application commands before gateway events."""
-        # Create the initial verification tables. If you later adopt Alembic,
-        # move this schema creation into a versioned migration.
+        # Create missing verification and per-server setup tables. create_all
+        # does not alter existing tables; use migrations for future schema changes.
         async with self.database.engine.begin() as connection:
             await connection.run_sync(Base.metadata.create_all)
         await self.database.check_connection()
@@ -126,4 +128,7 @@ class DiscordBot(commands.Bot):
         try:
             await super().close()
         finally:
-            await self.database.dispose()
+            try:
+                await self.roblox.close()
+            finally:
+                await self.database.dispose()
