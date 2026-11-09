@@ -30,7 +30,7 @@ class SetupService:
         information_two_channel_id: int | None, 
         information_three_channel_id: int | None
     ) -> None:
-        group_status = RobloxService.check_group()
+        group_status = RobloxService.check_group(roblox_group_id)
         if group_status == False:
             raise SetupError("Roblox group id is invalid and does not correspond to a roblox group.")
         
