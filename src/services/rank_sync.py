@@ -81,6 +81,7 @@ class RankSyncService:
 
             # Keep Roblox identifiers separate from Discord role identifiers.
             roblox_role_id, rank_name, rank_number = await self.roblox.get_group_role(
+                member.guild.id,
                 account.roblox_user_id
             )
 
