@@ -29,10 +29,6 @@ STATUS_PATH = PROJECT_ROOT / "data" / "bot_status.json"
 
 load_dotenv(dotenv_path=ENV_PATH, override=True)
 
-print(f"ENV FILE EXISTS: {ENV_PATH.exists()}")
-print(f"ENV FILE PATH: {ENV_PATH}")
-print(f"STATUS CHANNEL ID: {os.getenv('BOT_STATUS_CHANNEL_ID')!r}")
-
 DEVELOPER_ID = int(os.getenv("BOT_DEVELOPER_DISCORD_ID", "0"))
 STATUS_CHANNEL_ID = int(os.getenv("BOT_STATUS_CHANNEL_ID", "0"))
 
@@ -334,6 +330,22 @@ class BotStatus(commands.Cog):
                    "However, the status announcement could not be posted."),
                 ephemeral=True,
             )
+
+    async def announce_shutdown(self) -> None:
+        """Announce a planned bot shutdown."""
+
+        if self.maintenance_enabled:
+            return
+
+        await self._send_status(
+            title="System Offline",
+            description=(
+                "🔴 **PBAC Command is shutting down.**\n\n"
+                "The bot is disconnecting and will be unavailable "
+                "until it starts again."
+            ),
+            colour=discord.Colour.red(),
+        )
 
     async def cog_unload(self) -> None:
         """Cancel background tasks when unloading the cog."""

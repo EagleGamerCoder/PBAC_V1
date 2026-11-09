@@ -129,6 +129,9 @@ class DiscordBot(commands.Bot):
         """Close the Discord client cleanly."""
         logger.info("Shutting down %s bot.", APP_NAME)
         try:
+            status_cog = self.get_cog("BotStatus")
+            if status_cog is not None:
+                await status_cog.announce_shutdown()
             await super().close()
         finally:
             try:
