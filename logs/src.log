@@ -3111,3 +3111,4 @@ TypeError: can only join an iterable
 2026-11-09 16:36:37 | INFO     | src.core.bot | Loaded extension: src.cogs.server_setup
 2026-11-09 16:36:38 | INFO     | src.core.bot | Synced 8 application command(s) to development guild 1567327391066624052.
 2026-11-09 16:36:38 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 67d06c8f7680064e18159cf0373d2e70).
+2026-11-09 16:36:40 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
