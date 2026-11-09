@@ -75,29 +75,35 @@ class SetupService:
 			if information_one_channel_id != 0 and information_one_channel_id != None and self._get_embed_info(guild_id, 1) != None:
 				information_one_channel = guild.get_channel(information_one_channel_id)
 				deleted = information_one_channel.purge(limit=None)
+				one_embed_info = self._get_embed_info(guild_id, 1)
 				one_embed, one_files = create_pbac_embed(
-					
+					title=one_embed_info.title,
+					description=one_embed_info.description,
 				)
 				await information_one_channel.send(embed=one_embed, files=one_files)
 		        await interaction.followup.send(f"Information panel 1 posted in {information_one_channel.mention}.", ephemeral=True)
 			if information_two_channel_id != 0 and information_two_channel_id != None and self._get_embed_info(guild_id, 2) != None:
 				information_two_channel = guild.get_channel(information_two_channel_id)
 				deleted = information_two_channel.purge(limit=None)
+				two_embed_info = self._get_embed_info(guild_id, 2)
 				two_embed, two_files = create_pbac_embed(
-					
+					title=two_embed_info.title,
+					description=two_embed_info.description,
 				)
 				await information_two_channel.send(embed=two_embed, files=two_files)
 		        await interaction.followup.send(f"Information panel 2 posted in {information_two_channel.mention}.", ephemeral=True)
 			if information_three_channel_id != 0 and information_three_channel_id != None and self._get_embed_info(guild_id, 3) != None:
 				information_three_channel = guild.get_channel(information_three_channel_id)
 				deleted = information_three_channel.purge(limit=None)
-				three_embed_info = self._get_embed_info()
+				three_embed_info = self._get_embed_info(guild_id, 3)
 				three_embed, three_files = create_pbac_embed(
-					title=self.
+					title=three_embed_info.title,
+					description=three_embed_info.description,
 				)
 				await information_three_channel.send(embed=three_embed, files=three_files)
 		        await interaction.followup.send(f"Information panel 3 posted in {information_three_channel.mention}.", ephemeral=True)
-			
+
+			await session.commit()
 			await interaction.followup.send(f"All panels successfully sent.", ephemeral=True)
 
     async def _get_embed_info(self, guild_id: int, embed_number: int) -> dict[str, str] | None:
