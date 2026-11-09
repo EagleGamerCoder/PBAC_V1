@@ -66,7 +66,6 @@ class Settings:
     database_url : str
     verification_expiry_minutes: int
     verification_max_attempts: int
-    roblox_group_id: int
     rank_sync_interval_minutes: int
     nickname_format: str
     bod_field_marshal_user_id: int
@@ -107,7 +106,6 @@ def load_config() -> Settings:
 
     verification_expiry_minutes = parse_bounded_int("VERIFICATION_EXPIRY_MINUTES", os.getenv("VERIFICATION_EXPIRY_MINUTES"), default=10, minimum=2, maximum=30)
     verification_max_attempts = parse_bounded_int("VERIFICATION_MAX_ATTEMPTS", os.getenv("VERIFICATION_MAX_ATTEMPTS"), default=5, minimum=1, maximum=10)
-    roblox_group_id = parse_bounded_int("ROBLOX_GROUP_ID", os.getenv("ROBLOX_GROUP_ID"), default=1012772775, minimum=1, maximum=2**31 - 1)
     rank_sync_interval_minutes = parse_bounded_int("RANK_SYNC_INTERVAL_MINUTES", os.getenv("RANK_SYNC_INTERVAL_MINUTES"), default=0, minimum=0, maximum=1440)
     nickname_format = os.getenv("NICKNAME_FORMAT", "[{rank_abbr}] {username}").strip() or "[{rank_abbr}] {username}"
     bod_field_marshal_user_id = parse_id("BOD_FIELD_MARSHAL_USER_ID", os.getenv("BOD_FIELD_MARSHAL_USER_ID"))
@@ -132,7 +130,6 @@ def load_config() -> Settings:
         database_url=raw_database_url,
         verification_expiry_minutes=verification_expiry_minutes,
         verification_max_attempts=verification_max_attempts,
-        roblox_group_id=roblox_group_id,
         rank_sync_interval_minutes=rank_sync_interval_minutes,
         nickname_format=nickname_format,
         bod_field_marshal_user_id=bod_field_marshal_user_id,
