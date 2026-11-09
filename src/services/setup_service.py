@@ -48,7 +48,7 @@ class SetupService:
           
     async def update(self, interaction: discord.Interaction, guild_id: discord.guild.id) -> None:
         async with self.database.session() as session:
-			repo = ServerSetupRepository(session)
+		    repo = ServerSetupRepository(session)
 			configuration = await repo.get_configuration(guild_id)
 			if configuration is None:
 				raise SetupError("This server is not setup. Please ask a administrator to setup the server.")
