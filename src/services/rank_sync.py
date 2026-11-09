@@ -206,11 +206,8 @@ class RankSyncService:
                 is_bod = abbreviation.upper() == "BOD"
 
                 if is_bod:
-                    if (
-                        account.roblox_user_id == self.bod_field_marshal_user_id
-                        and self.bod_field_marshal_user_id
-                    ):
-                        abbreviation = "FM"
+                    if (account.roblox_user_id == self.bod_field_marshal_user_id and self.bod_field_marshal_user_id):
+                        abbreviation = "1IC"
 
                     elif (
                         account.roblox_user_id == self.bod_second_in_command_user_id

@@ -16,21 +16,12 @@ class SetupError(RuntimeError):
     pass
 
 class SetupService:
-    def __init__(self, database) -> None:
+    def __init__(self, database, roblox_service: RobloxService) -> None:
         self.database = database
+        self.roblox_service = roblox_service
 
-    async def start(
-        self, 
-        interaction: discord.Interaction, 
-        guild_id: int, 
-        roblox_group_id: int, 
-        verification_channel_id: int, 
-        rules_channel_id: int, 
-        information_one_channel_id: int | None, 
-        information_two_channel_id: int | None, 
-        information_three_channel_id: int | None
-    ) -> None:
-        group_status = RobloxService.check_group(roblox_group_id)
+    async def start(self, interaction: discord.Interaction, guild_id: int, roblox_group_id: int, verification_channel_id: int, rules_channel_id: int, information_one_channel_id: int | None, information_two_channel_id: int | None, information_three_channel_id: int | None) -> None:
+        group_status = await self.roblox_service.check_group(roblox_group_id)
         if group_status == False:
             raise SetupError("Roblox group id is invalid and does not correspond to a roblox group.")
         
@@ -38,7 +29,7 @@ class SetupService:
             repo = ServerSetupRepository(session)
             existing = await repo.get_configuration(guild_id)
             if existing:
-                repo.delete_configuration(guild_id)
+                await repo.delete_configuration(guild_id)
             
             configuration = ServerConfiguration(
                 discord_guild_id = guild_id,
@@ -49,7 +40,7 @@ class SetupService:
                 information_two_channel_id = information_two_channel_id or 0,
                 information_three_channel_id = information_three_channel_id or 0,
             )
-            await repo.put_configuration(self, configuration)
+            await repo.put_configuration(configuration)
             await session.commit()
             
         await self.update(interaction, guild_id)
