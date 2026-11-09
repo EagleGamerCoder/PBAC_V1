@@ -36,7 +36,6 @@ Verification and rank synchronisation retrieve the group ID saved for the member
 - Fixed bugs
 - Added more to README
 - Changed how the Roblox group ids are stored
-- 
 
 ### v0.1.5
 - Added per-server configuration
