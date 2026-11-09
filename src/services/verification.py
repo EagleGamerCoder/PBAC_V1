@@ -57,7 +57,7 @@ class VerificationService:
             await session.commit()
         return code, roblox_id, canonical_name
 
-    async def confirm(self, discord_user_id: int) -> tuple[int, str, int, str]:
+    async def confirm(self, guild_id, discord_user_id: int) -> tuple[int, str, int, str]:
         async with self.database.session() as session:
             repo = VerificationRepository(session)
             challenge = await repo.get_challenge(discord_user_id)
@@ -84,7 +84,7 @@ class VerificationService:
 
             # Ownership verification is independent of group membership. Non-members
             # are linked as civilians and receive the configured Civilian role on sync.
-            role_id, rank_name, rank_number = await self.roblox.get_group_role(challenge.roblox_user_id)
+            role_id, rank_name, rank_number = await self.roblox.get_group_role(guild_id, challenge.roblox_user_id)
             linked_elsewhere = await repo.get_by_roblox_id(challenge.roblox_user_id)
             if linked_elsewhere and linked_elsewhere.discord_user_id != discord_user_id:
                 raise VerificationError("That Roblox account is already linked to another Discord account.")
