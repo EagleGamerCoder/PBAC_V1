@@ -3098,3 +3098,16 @@ Traceback (most recent call last):
     "Configured panels posted:\n" + "\n".join(posted),
                                     ~~~~~~~~~^^^^^^^^
 TypeError: can only join an iterable
+2026-11-09 16:36:36 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-09 16:36:36 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-09 16:36:37 | INFO     | discord.client | logging in using static token
+2026-11-09 16:36:37 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-09 16:36:37 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-09 16:36:37 | INFO     | src.core.bot | Loading 5 Discord extension(s).
+2026-11-09 16:36:37 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-09 16:36:37 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-09 16:36:37 | INFO     | src.core.bot | Loaded extension: src.cogs.message
+2026-11-09 16:36:37 | INFO     | src.core.bot | Loaded extension: src.cogs.ticket
+2026-11-09 16:36:37 | INFO     | src.core.bot | Loaded extension: src.cogs.server_setup
+2026-11-09 16:36:38 | INFO     | src.core.bot | Synced 8 application command(s) to development guild 1567327391066624052.
+2026-11-09 16:36:38 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 67d06c8f7680064e18159cf0373d2e70).
