@@ -12,7 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 BRANDING_DIR = PROJECT_ROOT / "assets" / "branding"
 BADGE_PATH = BRANDING_DIR / "badge.png" 
-BANNER_PATH = BRANDING_DIR / "anner.png"
+BANNER_PATH = BRANDING_DIR / "banner.png"
 
 
 def create_pbac_embed(*, title: str, description: str | None = None, colour: discord.Colour | None = None) -> tuple[discord.Embed, list[discord.File]]:
