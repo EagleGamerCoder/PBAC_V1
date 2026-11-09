@@ -10,13 +10,20 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import discord
+from src.database.repositories.server_setup_repository import ServerSetupRepository
 from src.database.repositories.verification_repository import VerificationRepository
+from src.services.roblox import RobloxAPIError
 
 logger = logging.getLogger(__name__)
+
+
+def _utcnow_naive() -> datetime:
+    """Return UTC now as a naive value for the existing DateTime columns."""
+    return datetime.now(timezone.utc).replace(tzinfo=None)
 
 # Explicit allowlist: everything after "leadership" in the supplied role map is
 # intentionally ignored by verification and rank synchronisation.
@@ -76,14 +83,22 @@ class RankSyncService:
             if account is None:
                 return False, "This Discord member does not have a linked Roblox account."
 
-            profile = await self.roblox.get_user(account.roblox_user_id)
-            current_username = str(profile.get("name") or account.roblox_username)
+            server_config = await ServerSetupRepository(session).get_configuration(member.guild.id)
+            if server_config is None or server_config.roblox_group_id <= 0:
+                return False, "This Discord server has not been configured. Ask an administrator to run /setup configure."
 
-            # Keep Roblox identifiers separate from Discord role identifiers.
-            roblox_role_id, rank_name, rank_number = await self.roblox.get_group_role(
-                member.guild.id,
-                account.roblox_user_id
-            )
+            try:
+                profile = await self.roblox.get_user(account.roblox_user_id)
+                current_username = str(profile.get("name") or account.roblox_username)
+
+                # The configured group ID belongs to this Discord guild's setup.
+                roblox_role_id, rank_name, rank_number = await self.roblox.get_group_role(
+                    server_config.roblox_group_id,
+                    account.roblox_user_id,
+                )
+            except RobloxAPIError as exc:
+                logger.warning("Roblox lookup failed for member_id=%s: %s", member.id, exc)
+                return False, str(exc)
 
             config = self.load_config()
             if not config:
@@ -91,6 +106,8 @@ class RankSyncService:
 
             global_roles = config.get("roles", {})
             rank_mapping = config.get("ranks", {})
+            if not isinstance(global_roles, dict) or not isinstance(rank_mapping, dict):
+                return False, "The rank mapping file must contain valid 'roles' and 'ranks' objects. No changes were made."
 
             # Always assign Verified and all four banner roles.
             desired_ids: set[int] = set()
@@ -129,9 +146,23 @@ class RankSyncService:
             if not known_rank:
                 base_managed_ids = {self._role_id(global_roles.get(key)) for key in ALWAYS_ASSIGN_KEYS if self._role_id(global_roles.get(key)) is not None}
 
-                await self._apply_roles(member, desired_ids, base_managed_ids)
+                try:
+                    await self._apply_roles(member, desired_ids, base_managed_ids)
+                except (discord.Forbidden, discord.HTTPException, ValueError) as exc:
+                    logger.exception("Could not assign base verification roles for member_id=%s", member.id)
+                    return False, f"Could not assign verification roles: {exc}"
+                if update_record:
+                    account.roblox_username = current_username
+                    account.roblox_rank_id = roblox_role_id
+                    account.roblox_rank_name = rank_name
+                    account.last_synced_at = _utcnow_naive()
+                    await session.commit()
 
-                return True, (f"Your account is verified and the four banner roles plus the\nVerified role have been assigned. \nYour Roblox rank **{rank_name}**\n(role ID `{roblox_role_id}`, rank `{rank_number}`)\nis not yet mapped, so existing rank roles and nickname\nwere left unchanged. Please contact an administrator."
+                return True, (
+                    "Your account is verified and the four banner roles plus the Verified role have been assigned.\n"
+                    f"Your Roblox rank **{rank_name}** (role ID `{roblox_role_id}`, rank `{rank_number}`) "
+                    "is not yet mapped, so existing rank roles and nickname were left unchanged. "
+                    "Please contact an administrator."
                 )
 
             if roblox_role_id == 0:
@@ -243,9 +274,10 @@ class RankSyncService:
 
             if update_record:
                 account.roblox_username = current_username
-                account.roblox_rank_id = rank_number
+                # Keep this column as the Roblox role ID consistently.
+                account.roblox_rank_id = roblox_role_id
                 account.roblox_rank_name = rank_name
-                account.last_synced_at = datetime.utcnow()
+                account.last_synced_at = _utcnow_naive()
                 await session.commit()
 
             return True, result_text
