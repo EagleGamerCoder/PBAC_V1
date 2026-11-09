@@ -5,7 +5,7 @@ import discord
 from src.database.models.server_setup_model import ServerConfiguration
 from src.database.repositories.server_setup_repository import ServerSetupRepository
 from src.services.roblox import RobloxService, RobloxAPIError
-from src.services.verification import StartVerificationView, Verification
+from src.cogs.verification import StartVerificationView, Verification
 from src.ui.embeds import create_verification_panel, create_rules_panel, create_pbac_embed
 from src.utils.json_loader import load_json_object
 
