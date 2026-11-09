@@ -5,10 +5,7 @@ from __future__ import annotations
 
 import asyncio
 import json
-import logging
-import os
 
-from pathlib import Path
 from datetime import datetime, timezone
 
 import discord
@@ -16,17 +13,31 @@ from discord import app_commands
 from discord.ext import commands
 
 from src.core import __version__
-from dotenv import load_dotenv
 
-load_dotenv()
+import os
+import logging
+from pathlib import Path
+
+from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
 
+# Project root (the folder containing .env)
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+ENV_PATH = PROJECT_ROOT / ".env"
 STATUS_PATH = PROJECT_ROOT / "data" / "bot_status.json"
+
+load_dotenv(dotenv_path=ENV_PATH, override=True)
+
+print(f"ENV FILE EXISTS: {ENV_PATH.exists()}")
+print(f"ENV FILE PATH: {ENV_PATH}")
+print(f"STATUS CHANNEL ID: {os.getenv('BOT_STATUS_CHANNEL_ID')!r}")
 
 DEVELOPER_ID = int(os.getenv("BOT_DEVELOPER_DISCORD_ID", "0"))
 STATUS_CHANNEL_ID = int(os.getenv("BOT_STATUS_CHANNEL_ID", "0"))
+
+logger.info("Loading environment from: %s", ENV_PATH)
+logger.info("Status channel configured: %s", STATUS_CHANNEL_ID != 0)
 
 DISCONNECT_GRACE_PERIOD = 45
 
