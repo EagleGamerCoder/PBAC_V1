@@ -1,54 +1,44 @@
-"""Setup configs for individual server handling."""
-
+"""Slash commands for configuring individual Discord servers."""
 from __future__ import annotations
+
+import logging
 
 import discord
 from discord import app_commands
 from discord.ext import commands
 
-from src.ui.embeds import create_pbac_embed
+from src.services.setup_service import SetupError
 
-class SetupConfigModal(discord.ui.Modal, title="Setup step 1"):
+logger = logging.getLogger(__name__)
+
+
+class SetupConfigModal(discord.ui.Modal, title="Configure this Discord server"):
     roblox_group_id = discord.ui.TextInput(
-        label="Roblox group id",
-        placeholder="Enter the exact Roblox group id",
-        min_length=3,
+        label="Roblox group ID",
+        placeholder="Enter the Roblox group ID",
+        min_length=1,
         max_length=15,
         required=True,
     )
     verification_channel_id = discord.ui.TextInput(
-        label="Verification channel id",
-        placeholder="Enter the exact Discord verification channel id",
-        min_length=17,
-        max_length=19,
+        label="Verification channel ID",
+        placeholder="Enter the verification text-channel ID",
+        min_length=1,
+        max_length=20,
         required=True,
     )
     rules_channel_id = discord.ui.TextInput(
-        label="Rules channel id",
-        placeholder="Enter the exact Discord rules channel id",
-        min_length=17,
-        max_length=19,
-         required=True,
+        label="Rules channel ID",
+        placeholder="Enter the rules text-channel ID",
+        min_length=1,
+        max_length=20,
+        required=True,
     )
-    information_one_channel_id = discord.ui.TextInput(
-        label="Information channel id 1,
-        placeholder="Enter the exact Discord channel id OR leave blank if you don't wish to have one",
-        min_length=17,
-        max_length=19,
-        required=False,
-    )
-    information_two_channel_id = discord.ui.TextInput(
-        label="Information channel id 2,
-        placeholder="Enter the exact Discord channel id OR leave blank if you don't wish to have one",
-        min_length=17,
-        max_length=19,
-        required=False,
-    )
-    information_three_channel_id = discord.ui.TextInput(
-        label="Information channel id 3,
-        placeholder="Enter the exact Discord channel id OR leave blank if you don't wish to have one",
-        min_length=17,
-        max_length=19,
+    information_channel_ids = discord.ui.TextInput(
+        label="Information channel IDs (optional)",
+        placeholder="Up to 3 IDs, separated by commas; leave blank to skip",
+        min_length=0,
+        max_length=62,
         required=False,
     )
 
@@ -56,69 +46,109 @@ class SetupConfigModal(discord.ui.Modal, title="Setup step 1"):
         super().__init__()
         self.cog = cog
 
+    @staticmethod
+    def _parse_id(value: str, label: str) -> int:
+        raw = value.strip()
+        if not raw.isdigit() or int(raw) <= 0:
+            raise SetupError(f"{label} must be a positive number.")
+        return int(raw)
+
     async def on_submit(self, interaction: discord.Interaction) -> None:
         await interaction.response.defer(ephemeral=True, thinking=True)
         guild = interaction.guild
-        if not guild:
-            await interaction.followup.send("This command can only be used inside a server.", ephemeral=True)
+        if guild is None:
+            await interaction.followup.send(
+                "This command can only be used inside a Discord server.",
+                ephemeral=True,
+            )
             return
-    
+
         try:
-            try:
-                group_id = int(self.roblox_group_id.value.strip())
-                v_chan_id = int(self.verification_channel_id.value.strip())
-                r_chan_id = int(self.rules_channel_id.value.strip())
-                one_info_chan_id = int(self.information_one_channel_id.value.strip()) or None
-                two_info_chan_id = int(self.information_two_channel_id.value.strip()) or None
-                three_info_chan_id = int(self.information_three_channel_id.value.strip()) or None
-            except ValueError:
-                raise SetupError("One or more of the IDs you entered contains invalid characters. Please enter numbers only.")
+            group_id = self._parse_id(self.roblox_group_id.value, "Roblox group ID")
+            verification_id = self._parse_id(
+                self.verification_channel_id.value, "Verification channel ID"
+            )
+            rules_id = self._parse_id(self.rules_channel_id.value, "Rules channel ID")
 
-            verification_channel = guild.get_channel(v_chan_id)
-            rules_channel = guild.get_channel(r_chan_id)
-            if not verification_channel or not isinstance(verification_channel, discord.TextChannel):
-                raise SetupError(f"Could not find a valid text channel with the ID `{v_chan_id}` in this server.")
-            if not rules_channel or not isinstance(rules_channel, discord.TextChannel):
-                raise SetupError(f"Could not find a valid text channel with the ID `{r_chan_id}` in this server.")
-            if one_info_chan_id != None and (not one_info_chan_id or not isinstance(one_info_chan_id, discord.TextChannel)):
-                raise SetupError(f"Could not find a valid text channel with the ID `{one_info_chan_id}` in this server.")
-            if two_info_chan_id != None and (not two_info_chan_id or not isinstance(two_info_chan_id, discord.TextChannel)):
-                raise SetupError(f"Could not find a valid text channel with the ID `{two_info_chan_id}` in this server.")
-            if three_info_chan_id != None and (not three_info_chan_id or not isinstance(three_info_chan_id, discord.TextChannel)):
-                raise SetupError(f"Could not find a valid text channel with the ID `{three_info_chan_id}` in this server.")
+            raw_information_ids = self.information_channel_ids.value.strip()
+            information_ids: list[int | None] = []
+            if raw_information_ids:
+                parts = [part.strip() for part in raw_information_ids.split(",")]
+                if len(parts) > 3 or any(not part for part in parts):
+                    raise SetupError(
+                        "Enter up to three information channel IDs separated by commas."
+                    )
+                information_ids = [
+                    self._parse_id(part, "Information channel ID") for part in parts
+                ]
+            information_ids.extend([None] * (3 - len(information_ids)))
 
-            await self.cog.setup_service.start(interaction, guild.id, group_id, v_chan_id, r_chan_id, one_info_chan_id, two_info_chan_id, three_info_chan_id)
-            await interaction.followup.send("Server setup Success.", ephemeral=True)
+            posted = await self.cog.bot.setup_service.start(
+                interaction,
+                guild.id,
+                group_id,
+                verification_id,
+                rules_id,
+                information_ids[0],
+                information_ids[1],
+                information_ids[2],
+            )
+            await interaction.followup.send(
+                "**Server configuration saved.** The following panels were posted:\n"
+                + "\n".join(posted),
+                ephemeral=True,
+            )
+        except SetupError as exc:
+            await interaction.followup.send(str(exc), ephemeral=True)
+        except Exception:
+            logger.exception("Unexpected setup failure for guild_id=%s", guild.id)
+            await interaction.followup.send(
+                "An unexpected error occurred while configuring this server. The issue has been logged.",
+                ephemeral=True,
+            )
 
-        except SetupError as e:
-            await interaction.followup.send(str(e), ephemeral=True)
-        
+
 class ServerSetup(commands.Cog):
     """Setup configs for individual server handling."""
 
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
-        self.started_at = discord.utils.utcnow()
 
-    setup = app_commands.group(name="setup", description="Organise a server's connection to the bot.")
-    
-    @setup.command(name="configure", description="Setup a config for a server.")
+    setup = app_commands.Group(
+        name="setup",
+        description="Configure this Discord server's Roblox connection and panels.",
+    )
+
+    @setup.command(name="configure", description="Configure this server for Roblox verification.")
     @app_commands.checks.has_permissions(manage_guild=True)
     async def configure(self, interaction: discord.Interaction) -> None:
-        """Begin the setup process."""
         await interaction.response.send_modal(SetupConfigModal(self))
-        
-    @setup.command(name="update", description="Updates a server's configured components.")
+
+    @setup.command(name="update", description="Repost this server's configured panels.")
     @app_commands.checks.has_permissions(manage_guild=True)
     async def update(self, interaction: discord.Interaction) -> None:
-        """Update the setup components."""
+        if interaction.guild is None:
+            await interaction.response.send_message(
+                "This command can only be used inside a Discord server.",
+                ephemeral=True,
+            )
+            return
         await interaction.response.defer(ephemeral=True, thinking=True)
-        try: 
-            self.cog.setup_service.update(interaction, interaction.guild.id)
-        except SetupError as e:
-            await interaction.followup.send(str(e), ephemeral=True)
-        
+        try:
+            posted = await self.bot.setup_service.update(interaction, interaction.guild.id)
+            await interaction.followup.send(
+                "Configured panels posted:\n" + "\n".join(posted),
+                ephemeral=True,
+            )
+        except SetupError as exc:
+            await interaction.followup.send(str(exc), ephemeral=True)
+        except Exception:
+            logger.exception("Unexpected setup update failure for guild_id=%s", interaction.guild.id)
+            await interaction.followup.send(
+                "An unexpected error occurred while updating this server's panels. The issue has been logged.",
+                ephemeral=True,
+            )
+
 
 async def setup(bot: commands.Bot) -> None:
-    """Load this cog as a discord.py extension."""
     await bot.add_cog(ServerSetup(bot))
