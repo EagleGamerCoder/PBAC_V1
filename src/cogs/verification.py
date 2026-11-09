@@ -30,11 +30,6 @@ class RobloxUsernameModal(discord.ui.Modal, title="Link your Roblox account"):
         try:
             if interaction.guild is None:
                 raise VerificationError("Verification must be started inside a configured Discord server.")
-            server_config = await self.cog.bot.database.get_configuration(interaction.guild.id)
-            if server_config is None:
-                raise VerificationError(
-                    "This Discord server has not been configured yet. Ask an administrator to run /setup configure."
-                )
             code, user_id, canonical_name = await self.cog.verification_service.begin(
                 interaction.user.id, str(self.username.value)
             )
