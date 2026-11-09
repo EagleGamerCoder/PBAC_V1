@@ -31,6 +31,9 @@ Verification and rank synchronisation retrieve the group ID saved for the member
 `GUILD_ID` in `.env` is only the development guild used to register slash commands; it is not a Roblox group ID. The `data/verification/rank_mapping.json` role IDs are currently shared by all servers, so the mapped Discord roles must exist in each server where rank synchronisation is used.
 
 ## Version History
+### v0.2.2
+- Bug fixes from 0.2.1
+
 ### v0.2.1
 - Refined all details from v0.1.5
 - Fixed bugs
