@@ -50,7 +50,7 @@ class DiscordBot(commands.Bot):
         )
         self.settings = settings
         self.database = Database(settings.database_url)
-        self.roblox = RobloxService(settings.roblox_group_id)
+        self.roblox = RobloxService()
         self.verification_service = VerificationService(
             self.database,
             self.roblox,
