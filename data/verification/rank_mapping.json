@@ -15,7 +15,6 @@
     "officer": 1568371366447685712,
     "officer_perms": 1568371673986506752,
     "genstaff": 1567327517503660192,
-    "senior_genstaff": 1568373261597806813,
     "regimental_sergeant_major": 1567623713271185449,
     "cos": 1567327486591639675,
     "leadership": 1568431637392392284,
@@ -37,7 +36,7 @@
 
 
   "ranks": {
-    "916406041": {
+    "12884901889": {
       "name": "Recruit (Basic Military Training)",
       "abbreviation": "OR-1",
       "role_keys": [
