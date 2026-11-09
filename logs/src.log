@@ -3077,3 +3077,24 @@ In embeds.0.author.url: Scheme "attachment" is not supported. Scheme must be one
 2026-11-09 16:23:28 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/997569891 "HTTP/1.1 200 OK"
 2026-11-09 16:23:29 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/997569891/groups/roles "HTTP/1.1 200 OK"
 2026-11-09 16:23:30 | INFO     | src.cogs.verification | Verified Discord user_id=1028030873079140474 Roblox user_id=997569891 rank_id=916234048
+2026-11-09 16:34:45 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-09 16:34:45 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-09 16:34:45 | INFO     | discord.client | logging in using static token
+2026-11-09 16:34:46 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-09 16:34:46 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-09 16:34:46 | INFO     | src.core.bot | Loading 5 Discord extension(s).
+2026-11-09 16:34:46 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-09 16:34:46 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-09 16:34:46 | INFO     | src.core.bot | Loaded extension: src.cogs.message
+2026-11-09 16:34:46 | INFO     | src.core.bot | Loaded extension: src.cogs.ticket
+2026-11-09 16:34:46 | INFO     | src.core.bot | Loaded extension: src.cogs.server_setup
+2026-11-09 16:34:47 | INFO     | src.core.bot | Synced 8 application command(s) to development guild 1567327391066624052.
+2026-11-09 16:34:48 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 05ede720337962e5ba36d4e635580186).
+2026-11-09 16:34:50 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-09 16:35:21 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v1/groups/1012772775 "HTTP/1.1 200 OK"
+2026-11-09 16:35:46 | ERROR    | src.cogs.server_setup | Unexpected setup update failure for guild_id=1567327391066624052
+Traceback (most recent call last):
+  File "C:\Users\nated\PBAC_V1\src\cogs\server_setup.py", line 161, in update_info
+    "Configured panels posted:\n" + "\n".join(posted),
+                                    ~~~~~~~~~^^^^^^^^
+TypeError: can only join an iterable

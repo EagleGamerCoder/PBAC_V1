@@ -131,11 +131,8 @@ class ServerSetup(commands.Cog):
             return
         await interaction.response.defer(ephemeral=True, thinking=True)
         try:
-            posted = await self.bot.setup_service.update(interaction, interaction.guild.id)
-            await interaction.followup.send(
-                "Configured panels posted:\n" + "\n".join(posted),
-                ephemeral=True,
-            )
+            await self.bot.setup_service.update(interaction, interaction.guild.id)
+            await interaction.followup.send("All panels posted. ", ephemeral=True)
         except SetupError as exc:
             await interaction.followup.send(str(exc), ephemeral=True)
         except Exception:
@@ -156,11 +153,8 @@ class ServerSetup(commands.Cog):
             return
         await interaction.response.defer(ephemeral=True, thinking=True)
         try:
-            posted = await self.bot.setup_service.update_info(interaction, interaction.guild.id)
-            await interaction.followup.send(
-                "Configured panels posted:\n" + "\n".join(posted),
-                ephemeral=True,
-            )
+            await self.bot.setup_service.update_info(interaction, interaction.guild.id)
+            await interaction.followup.send("All panels posted. ", ephemeral=True)
         except SetupError as exc:
             await interaction.followup.send(str(exc), ephemeral=True)
         except Exception:
