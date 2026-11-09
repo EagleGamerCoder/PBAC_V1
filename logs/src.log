@@ -3143,3 +3143,30 @@ TypeError: can only join an iterable
 2026-11-09 16:52:41 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 8e30740fc485bd0785c874f300b4f71e).
 2026-11-09 16:52:43 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
 2026-11-09 16:53:15 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v1/groups/1012772775 "HTTP/1.1 200 OK"
+2026-11-09 17:06:00 | WARNING  | discord.client | PyNaCl is not installed, voice will NOT be supported
+2026-11-09 17:06:00 | WARNING  | discord.client | davey is not installed, voice will NOT be supported
+2026-11-09 17:06:00 | INFO     | discord.client | logging in using static token
+2026-11-09 17:06:01 | INFO     | src.database.connection | Database connection check succeeded.
+2026-11-09 17:06:01 | INFO     | src.core.bot | Database connectivity verified.
+2026-11-09 17:06:01 | INFO     | src.core.bot | Loading 5 Discord extension(s).
+2026-11-09 17:06:01 | INFO     | src.core.bot | Loaded extension: src.cogs.utilities
+2026-11-09 17:06:01 | INFO     | src.core.bot | Loaded extension: src.cogs.verification
+2026-11-09 17:06:01 | INFO     | src.core.bot | Loaded extension: src.cogs.message
+2026-11-09 17:06:01 | INFO     | src.core.bot | Loaded extension: src.cogs.ticket
+2026-11-09 17:06:01 | INFO     | src.core.bot | Loaded extension: src.cogs.server_setup
+2026-11-09 17:06:01 | INFO     | src.core.bot | Synced 8 application command(s) to development guild 1567327391066624052.
+2026-11-09 17:06:02 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 5618f03c230d77989687db640d149229).
+2026-11-09 17:06:04 | INFO     | src.core.bot | Connected to Discord as PBA Command#2526 (user_id=1567645208613490739).
+2026-11-09 17:06:38 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v1/groups/1012772775 "HTTP/1.1 200 OK"
+2026-11-09 17:19:40 | ERROR    | discord.ext.commands.bot | Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "Sup" is not found
+2026-11-09 17:19:47 | ERROR    | discord.ext.commands.bot | Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "Sup" is not found
+2026-11-09 17:21:19 | INFO     | httpx | HTTP Request: POST https://users.roblox.com/v1/usernames/users "HTTP/1.1 200 OK"
+2026-11-09 17:21:19 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/2270816395 "HTTP/1.1 200 OK"
+2026-11-09 17:21:23 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/2270816395 "HTTP/1.1 200 OK"
+2026-11-09 17:21:50 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/2270816395 "HTTP/1.1 200 OK"
+2026-11-09 17:21:51 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/2270816395/groups/roles "HTTP/1.1 200 OK"
+2026-11-09 17:21:51 | INFO     | httpx | HTTP Request: GET https://users.roblox.com/v1/users/2270816395 "HTTP/1.1 200 OK"
+2026-11-09 17:21:52 | INFO     | httpx | HTTP Request: GET https://groups.roblox.com/v2/users/2270816395/groups/roles "HTTP/1.1 200 OK"
+2026-11-09 17:21:52 | INFO     | src.cogs.verification | Verified Discord user_id=964512142629929020 Roblox user_id=2270816395 rank_id=916608028
