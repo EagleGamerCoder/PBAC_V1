@@ -58,7 +58,7 @@ class StartVerificationView(discord.ui.View):
         super().__init__(timeout=None)
         self.cog = cog
 
-    @discord.ui.button(label="Verify Account", style=discord.ButtonStyle.primary, custom_id="pbac:verification:start", row=0)
+    @discord.ui.button(label="Verify Account", style=discord.ButtonStyle.success, emoji="✅", custom_id="pbac:verification:start", row=0)
     async def start(self,interaction: discord.Interaction, button: discord.ui.Button) -> None:
         await interaction.response.send_modal(RobloxUsernameModal(self.cog))
 

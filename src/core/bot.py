@@ -65,6 +65,8 @@ class DiscordBot(commands.Bot):
             nickname_format=settings.nickname_format,
             bod_field_marshal_user_id=settings.bod_field_marshal_user_id,
             bod_second_in_command_user_id=settings.bod_second_in_command_user_id,
+            bod_cds_user_id=settings.bod_cds_user_id,
+            bod_dev_user_id=settings.bod_dev_user_id,
         )
         self.setup_service = SetupService(
             self.database,

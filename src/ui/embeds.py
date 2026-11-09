@@ -29,12 +29,14 @@ def create_pbac_embed(*, title: str, description: str | None = None, colour: dis
         description=description,
         colour=colour or discord.Colour(PBAC_GREY)
     )
-    
-    # <<<< Removal to see UI Changes in 0.1.5
+
+    """
     # Department identity in the author area.
-    #embed.set_author(
-    #    name="POLVITO'S BRITISH ARMY COMMAND",
-    #)
+    embed.set_author(
+        name="Polvito's British Army Command",
+        icon_url="attachment://badge.png"
+    )
+    """
     
     # Wide image displayed beneath the embed's main content.
     embed.set_image(
@@ -46,7 +48,7 @@ def create_pbac_embed(*, title: str, description: str | None = None, colour: dis
     )
 
     files = [
-        discord.File(BADGE_PATH, filename="badge.png"),
+        # discord.File(BADGE_PATH, filename="badge.png"),
         discord.File(BANNER_PATH, filename="banner.png"),
     ]
 

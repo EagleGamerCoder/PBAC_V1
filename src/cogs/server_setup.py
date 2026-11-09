@@ -83,7 +83,7 @@ class SetupConfigModal(discord.ui.Modal, title="Configure this Discord server"):
                 ]
             information_ids.extend([None] * (3 - len(information_ids)))
 
-            posted = await self.cog.bot.setup_service.start(
+            await self.cog.bot.setup_service.start(
                 interaction,
                 guild.id,
                 group_id,
@@ -93,11 +93,7 @@ class SetupConfigModal(discord.ui.Modal, title="Configure this Discord server"):
                 information_ids[1],
                 information_ids[2],
             )
-            await interaction.followup.send(
-                "**Server configuration saved.** The following panels were posted:\n"
-                + "\n".join(posted),
-                ephemeral=True,
-            )
+
         except SetupError as exc:
             await interaction.followup.send(str(exc), ephemeral=True)
         except Exception:
@@ -149,6 +145,31 @@ class ServerSetup(commands.Cog):
                 ephemeral=True,
             )
 
+    @setup.command(name="update-info", description="Repost this server's configured panels.")
+    @app_commands.checks.has_permissions(manage_guild=True)
+    async def update_info(self, interaction: discord.Interaction) -> None:
+        if interaction.guild is None:
+            await interaction.response.send_message(
+                "This command can only be used inside a Discord server.",
+                ephemeral=True,
+            )
+            return
+        await interaction.response.defer(ephemeral=True, thinking=True)
+        try:
+            posted = await self.bot.setup_service.update_info(interaction, interaction.guild.id)
+            await interaction.followup.send(
+                "Configured panels posted:\n" + "\n".join(posted),
+                ephemeral=True,
+            )
+        except SetupError as exc:
+            await interaction.followup.send(str(exc), ephemeral=True)
+        except Exception:
+            logger.exception("Unexpected setup update failure for guild_id=%s", interaction.guild.id)
+            await interaction.followup.send(
+                "An unexpected error occurred while updating this server's panels. The issue has been logged.",
+                ephemeral=True,
+            )
+    
 
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(ServerSetup(bot))
