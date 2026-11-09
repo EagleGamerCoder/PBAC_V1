@@ -67,8 +67,7 @@ class DiscordBot(commands.Bot):
             bod_second_in_command_user_id=settings.bod_second_in_command_user_id,
         )
         self.setup_service = SetupService(
-            self.database,
-            self.roblox
+            self.database
         )
         self._logged_first_ready = False
         self.tree.on_error = handle_app_command_error
