@@ -213,7 +213,7 @@ class RankSyncService:
                     elif (account.roblox_user_id == self.bod_cds_user_id and self.bod_cds_user_id):
                         abbreviation = "CDS"
                     elif (account.roblox_user_id == self.bod_dev_user_id and self.bod_dev_user_id):
-                        abbreviation = "DEV (TEMP)"
+                        abbreviation = "OF-7/DEV"
 
                 display_rank = str(entry.get("name") or rank_name)
 
