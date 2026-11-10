@@ -181,4 +181,14 @@ class RobloxService:
 
     async def get_profile_description(self, user_id: int) -> str:
         profile = await self.get_user(user_id)
-        return str(profile.get("description") or "")
+        description = profile.get("description")
+
+        logger.info(
+            "Roblox profile diagnostic | user_id=%s | "
+            "username=%s | description_type=%s | description_length=%s",
+            user_id,
+            profile.get("name"),
+            type(description).__name__,
+            len(description) if isinstance(description, str) else "N/A",
+        )
+        return str(description or "")
