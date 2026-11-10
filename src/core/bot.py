@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import logging
 logger = logging.getLogger(__name__)
+from src.core import __version__
 
 import discord
 from discord.ext import commands
@@ -117,7 +118,7 @@ class DiscordBot(commands.Bot):
         if not self._logged_first_ready:
             logger.info("Connected to Discord as %s (user_id=%s).", self.user, self.user.id if self.user else "unknown")
             self._logged_first_ready = True
-            await self.change_presence(status=discord.Status.online, activity=discord.Game('Currently in development.'))
+            await self.change_presence(status=discord.Status.online, activity=discord.Game(f'Running v{__version__}.'))
         else:
             logger.info("Discord gateway session is ready again.")
 

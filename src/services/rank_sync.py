@@ -25,12 +25,10 @@ def _utcnow_naive() -> datetime:
     """Return UTC now as a naive value for the existing DateTime columns."""
     return datetime.now(timezone.utc).replace(tzinfo=None)
 
-# Explicit allowlist: everything after "leadership" in the supplied role map is
-# intentionally ignored by verification and rank synchronisation.
+# Explicit allowlist: everything after "leadership" in the supplied role map is intentionally ignored by verification and rank synchronisation.
 ALWAYS_ASSIGN_KEYS = ("verified", "banner1", "banner2", "banner3", "banner4")
-MANAGED_RANK_KEYS = ("civilian", "recruit", "enlisted", "officer", "officer_perms", "genstaff", "senior_genstaff", "regimental_sergeant_major", "cos", "leadership")
+MANAGED_RANK_KEYS = ("civilian", "recruit", "enlisted", "officer", "officer_perms", "genstaff", "cos", "leadership")
 MANAGED_ROLE_KEYS = set(ALWAYS_ASSIGN_KEYS) | set(MANAGED_RANK_KEYS)
-
 
 class RankSyncService:
     """Apply verification, category roles and nickname prefixes."""
