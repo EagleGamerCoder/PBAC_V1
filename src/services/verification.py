@@ -84,16 +84,12 @@ class VerificationService:
             # The group is selected by the Discord server's /setup configure data.
             server_config = await ServerSetupRepository(session).get_configuration(guild_id)
             if server_config is None or server_config.roblox_group_id <= 0:
-                raise VerificationError(
-                    "This Discord server has not been configured yet. Ask an administrator to run /setup configure."
-                )
+                raise VerificationError("This Discord server has not been configured yet. Ask an administrator to run /setup configure.")
 
             repo = VerificationRepository(session)
             challenge = await repo.get_challenge(discord_user_id)
             if challenge is None:
-                raise VerificationError(
-                    "You don't have an active verification. Start again using the verification panel."
-                )
+                raise VerificationError("You don't have an active verification. Start again using the verification panel.")
             if challenge.expires_at < _utcnow_naive():
                 await repo.delete_challenge(discord_user_id)
                 await session.commit()
@@ -105,31 +101,29 @@ class VerificationService:
 
             try:
                 description = await self.roblox.get_profile_description(challenge.roblox_user_id)
-                # Compare the exact challenge token as a standalone item.
-                found = challenge.challenge_hash in {
-                    self._hash(token.strip()) for token in description.split()
-                }
+                # Roblox may return an empty description while profile
+                # changes are unavailable or have not propagated.
+                if not description.strip():
+                    raise VerificationError("Roblox returned an empty profile description.\nYour verification attempt has not been used.\nPlease check your Roblox profile and try again shortly.")
+
+                # Compare verification codes as individual tokens.
+                profile_tokens = {self._hash(token.strip().upper()) for token in description.split() if token.strip()}
+                found = challenge.challenge_hash in profile_tokens
+
                 if not found:
                     challenge.attempts += 1
                     await session.commit()
-                    remaining = max(0, self.max_attempts - challenge.attempts)
-                    raise VerificationError(
-                        "Code not found in your Roblox profile description. "
-                        f"Attempts remaining: {remaining}."
-                    )
 
-                role_id, rank_name, _rank_number = await self.roblox.get_group_role(
-                    server_config.roblox_group_id,
-                    challenge.roblox_user_id,
-                )
+                    remaining = max(0, self.max_attempts - challenge.attempts)
+                    raise VerificationError(f"Your verification code was not found in your\nRoblox profile description.\nAttempts remaining: {remaining}.")
+
+                role_id, rank_name, _rank_number = await self.roblox.get_group_role(server_config.roblox_group_id, challenge.roblox_user_id)
             except RobloxAPIError as exc:
                 raise VerificationError(str(exc)) from exc
 
             linked_elsewhere = await repo.get_by_roblox_id(challenge.roblox_user_id)
             if linked_elsewhere and linked_elsewhere.discord_user_id != discord_user_id:
-                raise VerificationError(
-                    "That Roblox account is already linked to another Discord account."
-                )
+                raise VerificationError("That Roblox account is already linked to another Discord account.")
 
             account = VerifiedAccount(
                 discord_user_id=discord_user_id,
@@ -141,22 +135,16 @@ class VerificationService:
                 verified_at=_utcnow_naive(),
                 last_synced_at=_utcnow_naive(),
             )
+
             await repo.save_account(account)
             await repo.delete_challenge(discord_user_id)
             try:
                 await session.commit()
             except IntegrityError as exc:
                 await session.rollback()
-                raise VerificationError(
-                    "This Roblox account is already linked to another Discord account."
-                ) from exc
+                raise VerificationError("This Roblox account is already linked to another Discord account.") from exc
 
-            return (
-                challenge.roblox_user_id,
-                challenge.roblox_username,
-                role_id,
-                rank_name,
-            )
+            return (challenge.roblox_user_id, challenge.roblox_username, role_id, rank_name)
 
     async def get_link(self, discord_user_id: int) -> VerifiedAccount | None:
         async with self.database.session() as session:

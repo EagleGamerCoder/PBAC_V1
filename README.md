@@ -32,12 +32,15 @@ Verification and rank synchronisation retrieve the group ID saved for the member
 
 ## Version History
 ### v0.2.2
+- Bug fixes from 0.2.2
+
+### v0.2.2
 - Bug fixes from 0.2.1
+- Bot Status connections
 
 ### v0.2.1
 - Refined all details from v0.1.5
 - Fixed bugs
-- Added more to README
 - Changed how the Roblox group ids are stored
 
 ### v0.1.5
